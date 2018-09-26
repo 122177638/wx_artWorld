@@ -1,0 +1,12 @@
+<!--pages/setOccupation/setOccupation.wxml-->
+<!-- 选择职业  -->
+<view class="registerTwo_occupation_container" >
+   <view class="occupation_title">请选择职业</view>
+   <view class="occupation_title_point">（最多选择三个类别）</view>
+   <view class="occupation_item" wx:for="{{occupationArray}}" data-oid='{{item.oid}}' wx:key="id" bindtap='getOccupationChange'>
+      <view class="occupation_name">{{item.occupation}}</view>
+      <image src="/images/img_gouxuan.png" wx:if="{{item.Oactive}}" class="active_icon"></image>
+   </view>
+   <view class="getidentityEnd" bindtap="navigateTosetStarMessage">确定</view>
+</view> 
+

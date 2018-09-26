@@ -1,0 +1,34 @@
+<!--pages/setDetails/setDetails.wxml-->
+<view class="setGG">
+  <view class="GGpoint">
+      <text>用户在访问您的主页时将能看到您的个人经历，请认真填写</text>
+  </view>
+  <view class="items" wx:for="{{itemArr}}" wx:key="id" wx:for-index="idx" wx:for-item="itemName">
+  
+    <view class="item" wx:if="{{itemName.auto == text}}">
+      <image src="../../images/btn_shangyi.png"  class="shangyi yidong" bindtap="onshangyi" data-index="{{itemName.id}}" style="display:{{itemName.shangyi?'none':'block'}}"></image>
+      <textarea placeholder="请添加文字说明" data-id='{{itemName.id}}' bindinput='getText' class="importTxt" value='{{itemName.content}}'></textarea>
+      <text style="display:none">{{itemName.id}}</text>
+      <image src="../../images/btn_xiayi.png" class="xiayi yidong" bindtap="onxiayi" data-index="{{itemName.id}}" style="display:{{itemName.xiayi?'none':'block'}}"></image>
+      <image src="../../images/btn_shanchu.png" class="delet" bindtap='delet' data-index="{{itemName.id}}"></image>
+    </view>
+     <view class="item" wx:if="{{itemName.auto == textImg}}">
+      <image src="../../images/btn_shangyi.png" class="shangyi yidong" bindtap="onshangyi"  data-index="{{itemName.id}}" style="display:{{itemName.shangyi?'none':'block'}}"></image>
+      <view class="content">
+        <image src="{{itemName.imgurl}}" mode="aspectFill" class="addImg"></image>
+        <textarea placeholder="请添加文字说明" class="PimportTxt" data-id='{{itemName.id}}' bindinput='getText' value='{{itemName.content}}'></textarea>
+      </view>
+      <image src="../../images/btn_xiayi.png" class="xiayi yidong" bindtap="onxiayi" data-index="{{itemName.id}}"  style="display:{{itemName.xiayi?'none':'block'}}"></image>
+      <image src="../../images/btn_shanchu.png" class="delet" bindtap='delet' data-index="{{itemName.id}}"></image>
+    </view> 
+  </view>
+  <view class="addItem">
+    <image src="../../images/img_tianjiatupian.png " bindtap='additem' class="addItemBtn"></image>
+  </view>
+   <view class="F_pot">
+    <view class="btnBox">
+        <!-- <view class="yulan" bindtap='navigataTodetails'>返回</view> -->
+        <view class="wancheng" bindtap='navigataToGoback'>完成</view>
+    </view>
+  </view> 
+</view>

@@ -1,0 +1,4 @@
+<!--pages/notice/notice.wxml-->
+<text>pages/notice/notice.wxml</text>
+<import src="/template/tabBar/tabBar.wxml"/>  
+<template is="tabBar" data="{{tabBar}}"/>  

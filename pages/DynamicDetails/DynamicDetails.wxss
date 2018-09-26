@@ -1,0 +1,206 @@
+/* pages/DynamicDetails/DynamicDetails.wxss */
+.DynamicDetails_container{padding-bottom:100rpx;}
+.D_Details_top{
+   display: flex;
+   justify-content:space-between;
+   align-items: center;
+   padding:30rpx 62rpx 28rpx 20rpx;
+}
+.D_Details_user{display: flex;align-items: center;}
+.userPortrait{width:114rpx;height:114rpx;margin-right:18rpx;border-radius: 50%;}
+.userMsg view{font-size:32rpx;color:#000000;}
+.userMsg text{font-size:28rpx;color:#707070;}
+.D_top_icon{width:40rpx;height:22rpx;}
+
+.D_Details_content{padding:0 20rpx;}
+.D_Details_title{font-size:30rpx;color:#333333;word-wrap: break-word;word-break: break-all;margin-bottom: 20rpx;}
+/* 4宫格 */
+.D_Details_upload4{
+   display: flex;
+   flex-wrap: wrap;
+}
+.upload_img4{width:350rpx;height:350rpx;margin-bottom:10rpx;margin-right:10rpx;}
+.upload_img4:nth-child(2n){margin-right:0;}
+.upload_img4:nth-last-child(1),.upload_img4:nth-last-child(2){margin-bottom:0;}
+
+/* 9宫格 */
+.D_Details_upload9{
+   display: flex;
+   flex-wrap: wrap;
+}
+.upload_img9{width:230rpx;height:230rpx;margin-bottom: 10rpx;margin-right:10rpx;}
+.upload_img9:nth-child(3n){margin-right:0;}
+.upload_img9:nth-last-child(1),.upload_img9:nth-last-child(2).upload_img9:nth-last-child(3){margin-bottom:0;}
+
+.D_Details_star{
+   padding:20rpx 0;
+   margin-top:24rpx;
+   margin-bottom: 24rpx;
+   border-top:2rpx solid #f3f3f3;
+   border-bottom:2rpx solid #f3f3f3;
+   display: flex;
+   align-items: center;
+}
+.star_box{border-right:2rpx solid #f0f0f0;font-size:28rpx;color:#333333;height:116rpx;width:120rpx;display: flex;align-items: center;box-sizing: border-box;}
+.star_icon{width:38rpx;height:32rpx;margin-right:10rpx;vertical-align: middle;}
+.star_user{
+   display: flex;
+   flex-wrap: wrap;
+   margin-left:22rpx;
+   width:100%;
+   align-items: center;
+}
+.star_img{
+   width:52rpx;height:52rpx;
+   border-radius: 50%;
+   margin-right:14rpx;
+   margin-bottom: 10rpx;
+}
+
+.star_img:nth-child(9n){margin-right:0;}
+
+.comment_container{}
+.comment_title{display: flex;font-size:32rpx;color:#333333;padding:0 30rpx;}
+.comment_title view{padding-bottom: 10rpx;margin-right:10rpx;border-bottom:2rpx solid #ed3439;}
+.comment_content{padding:0 20rpx;}
+.comment_item{
+   display: flex;
+   padding:20rpx 0 30rpx;
+}
+
+.comment_portriat{width:84rpx;height:84rpx;margin-right:20rpx;}
+.portriat_img{width:84rpx;height:84rpx;vertical-align: middle;border-radius: 50%;}
+
+.comment_right{width:100%;}
+.comment_right_top{display: flex;justify-content: space-between;}
+.comment_right_top view:nth-child(1){font-size:28rpx;color:#333333;}
+.comment_right_top view:nth-child(2){font-size:24rpx;color:#a3a3a3;}
+.comment_right_bottom{position: relative;padding-right:60rpx;margin-top:20rpx;}
+.comment_msg{
+   font-size:30rpx;
+   color:#333333;
+   word-break: break-all;
+   word-wrap: break-word;
+}
+.comment_huifu{position: absolute;right:0;bottom:0;font-size:28rpx;color:#1f8ae3;}
+.huifu_box{
+   font-size:30rpx;
+   color:#333333;
+   padding:20rpx;
+   background-color:#f3f3f3;
+   margin-top:30rpx;
+   word-break: break-all;
+   word-wrap: break-word;
+}
+.huifu_item{padding-bottom: 10rpx;}
+/* 视频  */
+/* 四宫格  */
+.Photos_home{
+   position: relative;
+}
+.Photos_homeImg{
+   width:350rpx;
+   height:350rpx;
+   border-radius: 10rpx;
+   vertical-align: middle;
+}
+/* 九宫格  */
+.Photos_home{
+   position: relative;
+}
+.Photos_homeImg9{
+   width:230rpx;
+   height:230rpx;
+   border-radius: 10rpx;
+   vertical-align: middle;
+}
+.videoBg{
+   background-color:rgba(0,0,0,0.5);
+   position:absolute;
+   top:0;
+   left:0;
+   width:100%;
+   height:100%;
+   z-index:8;
+   border-radius: 10rpx;
+}
+.bofangBtn{
+   width:84rpx;
+   height:84rpx;
+   position: absolute;
+   left:50%;
+   top:50%;
+   transform: translate(-50%,-50%);
+   z-index:9;
+}
+
+
+/* 弹窗  */
+.select_container{
+   width:100%;
+   height:100%;
+   position: fixed;
+   top:0;
+   left:0;
+   z-index: 100;
+   background-color:rgba(0, 0, 0, 0.5);
+}
+.select_wrap{
+   position: absolute;
+   bottom:0;
+   width:100%;
+}
+@keyframes Bmove{0%{bottom:-500rpx}100%{bottom:0}}
+.select_wrap .select_btn:nth-child(1){border-top-right-radius: 10rpx;border-top-left-radius: 10rpx;}
+.select_wrap .select_btn:nth-child(2){border-radius: 0;}
+.select_wrap .select_btn:nth-child(3){border-bottom-right-radius: 10rpx;border-bottom-left-radius: 10rpx;}
+.select_wrap .select_btn:nth-child(4){
+   border-top:10rpx solid #e8e8e8;
+   border-radius: 10rpx;
+}
+.select_btn{
+   width:100%;
+   height:100rpx;
+   line-height: 100rpx;
+   text-align: center;
+   background-color:#ffffff;
+   font-size:30rpx;
+   color:#000000;
+}
+/* 聊天  */
+.chat_container{
+   position: fixed;
+   bottom:0;
+   left:0;
+   width:100%;
+   background-color:#ffffff;
+   overflow: hidden;
+   z-index: 97;
+}
+.chat_box{
+   width:100%;
+   border-top:2rpx solid #d8d8d8;
+   display: flex;
+   align-items:center;
+   justify-content: center;
+   overflow: hidden;
+}
+.chatEnd_btn{
+   margin-left:20rpx;
+   padding:20rpx;
+   font-size:32rpx;
+   color:#1f8ae3;
+}
+.chat_import{
+   padding:20rpx 0;
+}
+.importMsg{
+   border:2rpx solid #d8d8d8;
+   border-radius:10rpx;
+   width:540rpx;
+   background-color:#f3f3f3;
+   font-size:32rpx;
+   padding-left:20rpx;
+   box-sizing: border-box;
+   height:70rpx;
+}

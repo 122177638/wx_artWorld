@@ -1,0 +1,11 @@
+<!--pages/photos/photos.wxml-->
+<view class="p_photos">
+   <view class="addPhotosBox">
+      <!-- <view class="addPhotos_btn" bindtap='addPhotosEvent'>+</view> -->
+      <view class="photoBox" wx:for="{{Photositem.photosArr}}" wx:key="id">
+         <image src="{{item.simgurl}}" mode='aspectFill' class="photoImg" data-index='{{index}}' catchtap='previewImageEvent'></image>
+         <!-- <image src="/images/btn_shanchu.png" data-pid='{{item.pid}}' class="delete_icon" catchtap='deletePhotoEvent'></image> -->
+      </view>
+   </view>
+</view>
+

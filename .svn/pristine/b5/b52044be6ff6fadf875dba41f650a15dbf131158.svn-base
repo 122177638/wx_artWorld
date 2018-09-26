@@ -1,0 +1,18 @@
+<!--pages/MyNeeds/MyNeeds.wxml-->
+<view class="item_container">
+   <view class="stayPayment_item" wx:for="{{NeedsArr}}" wx:key="id" wx:for-item="Needs" data-oid='{{Needs.oid}}' data-state="{{Needs.state}}" bindtap='navigateToNeedsDetails'>
+      <view class="stayPayment_title">
+         <view class="title_left">{{Needs.title}}</view>
+         <view class="title_right">{{Needs.sign}}</view>
+      </view>
+      <view class="stayPayment_content">
+         <view>{{Needs.content}}</view>
+         <view>演出地址： {{Needs.address}}</view>
+         <view>演出时间： {{Needs.playTime}}</view>
+         <view>演出价格： <text>￥{{Needs.playMoney}}</text></view>
+      </view>
+      <view class="stayPayment_foot">
+         <view class="stayPayment_btn">{{Needs.NeedsTime}}</view>
+      </view>
+   </view>
+</view>

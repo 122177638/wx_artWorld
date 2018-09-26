@@ -1,0 +1,16 @@
+<!--pages/placeOrder/placeOrder.wxml-->
+<view class="placeOrder_container">
+   <view class="placeOrder_top">
+      <view class="placeOrder_top_wrap">
+         <icon type="success" size="70"/>
+         <view class="top_wrap_right">
+            <view>订单已完成</view>
+            <view>请尽快联系艺人确认订单，保证演出的顺利进行哦~</view>
+         </view>
+      </view>
+      <view class="MoreService">
+         <view class="M_btn" bindtap='navigateToNeedsEndDetails'>查看订单</view>
+         <button class="M_btn" open-type='contact'>联系客服</button>
+      </view>
+   </view>
+</view>

@@ -1,0 +1,16 @@
+<!--pages/registerThree/registerThree.wxml-->
+<view class="registerThree_container">
+  <view class="registerThree_portrait">
+    <view class="registerThree_addFeil" wx:if="{{addFeil}}" bindtap='AddFeilChange'>+</view>
+    <image src="{{tempFilePaths}}" mode='aspectFill' class="head_portrait" wx:else bindtap='AddFeilChange'></image>
+    <view class="point">选择上传头像</view>
+  </view>
+  <view class="registerThree_name">
+    <text>艺名</text><input type="text" placeholder='请输入你的艺名' maxlength='11' bindinput='getNameChange'></input>
+  </view>
+  <view class="import_point_already" wx:if="{{nameNot == 0}}">该名字已被使用，请重新输入</view>
+  <view class="import_point_not" wx:if="{{nameNot == 1}}">该名字可以使用</view>
+  <view class="import_point_already" wx:if="{{nameNot == 2}}">只能输入中文和英文</view>
+  <view class="import_point_already" wx:if="{{nameNot == null}}"></view>
+  <view class="registerThree_End" style="background-color:{{nameNot == 1&&tempFilePaths!= ''?'rgba(255,255,255,1)':''}}" bindtap="{{nameNot == 1&& tempFilePaths!= ''?'navigateTomyMessage':''}}">完成</view>
+</view>

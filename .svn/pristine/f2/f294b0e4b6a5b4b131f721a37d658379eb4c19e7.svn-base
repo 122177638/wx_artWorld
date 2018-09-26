@@ -1,0 +1,26 @@
+/* pages/setStarMessage/setStarMessage.wxss */
+.setStarMessage_container{font-family: PingFangSC-Medium, sans-serif;}
+.setMsg_item{padding:30rpx;border-bottom:2rpx solid #f3f3f3;display: flex;justify-content: space-between;align-items: center;}
+.item_left{font-size:32rpx;color:#333333;}
+.item_right{display: flex;align-items: center;font-size:30rpx;color:#707070;}
+.starPortrait{width:100rpx;height:100rpx;border-radius: 50%;}
+.starIcon{width:14rpx;height:26rpx;margin-left:20rpx;}
+.importStarMsg{text-align: right;}
+.setMsg_item_data{padding:30rpx;}
+.item_data_title{margin-bottom: 30rpx;font-size:32rpx;color:#333333;}
+.import_item_data{width:690rpx;height:150rpx;border:2rpx solid #d8d8d8;font-size:30rpx;color:#707070;}
+.setEndBox{
+   padding:50rpx 0;
+   text-align: center;
+}
+.setEnd_btn{
+   width:240rpx;
+   height:62rpx;
+   border:2rpx solid #000000;
+   border-radius: 10rpx;
+   font-size:36rpx;
+   color:#000000;
+   text-align: center;
+   line-height: 62rpx;
+   display: inline-block;
+}

@@ -1,0 +1,19 @@
+<!--pages/searchpicker/searchpicker.wxml-->
+<view>
+  <view class="search_picker">
+    <input type='text'  confirm-typ="search"  placeholder='搜索地区' class="search_input" bindinput='searchChange'></input>
+    <view class="search_btn">搜索</view>
+    <view class="search_vague" wx:if="{{vague}}">
+      <view class="search_vague_item" wx:for="{{vague_picker}}" wx:key="id" wx:for-item="vagueSearch" data-name="{{vagueSearch.name}}" data-data='{{vagueSearch.pinyin}}' bindtap='getpickerChange'>{{vagueSearch.name}}</view>
+    </view>
+  </view>
+  <view class="Hot_picker">
+    <view class="Hot_title">热门城市</view>
+    <view class="Hot_content">
+      <view wx:for="{{Hot_picker}}" wx:key="id" wx:for-item="Hot_item" data-name="{{Hot_item.name}}" data-data='{{Hot_item.pinyin}}' bindtap='getpickerChange'>{{Hot_item.name}}</view>
+    </view>
+  </view>
+  <view class="sort_picker">
+    <view class="picker_item {{(item=='A'||item=='B'||item=='C'||item=='D'||item=='E'||item=='F'||item=='G'||item=='H'||item=='I'||item=='J'||item=='K'||item=='L'||item=='M'||item=='N'||item=='O'||item=='P'||item=='Q'||item=='R'||item=='S'||item=='T'||item=='U'||item=='V'||item=='W'||item=='X'||item=='Y'||item=='Z')?'bgcolor':''}}" bindtap='getpickerChange' wx:for="{{Searchpicker}}" wx:key="id" data-name='{{item.name}}' data-data='{{item.pinyin}}'>{{(item=='A'||item=='B'||item=='C'||item=='D'||item=='E'||item=='F'||item=='G'||item=='H'||item=='I'||item=='J'||item=='K'||item=='L'||item=='M'||item=='N'||item=='O'||item=='P'||item=='Q'||item=='R'||item=='S'||item=='T'||item=='U'||item=='V'||item=='W'||item=='X'||item=='Y'||item=='Z')?item:item.name}}</view>
+  </view>
+</view>

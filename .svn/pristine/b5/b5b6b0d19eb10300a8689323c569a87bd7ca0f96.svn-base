@@ -1,0 +1,77 @@
+/* pages/stayClalendar/stayClalendar.wxss */
+.stayClalendar_title{
+   padding:36rpx 0;
+   border-top:2rpx solid #F3F3F3;
+   border-bottom: 2rpx solid #F3F3F3;
+   font-size:32rpx;
+   color:#333333;
+   text-align: center;
+}
+.clalendar_icon{
+   width:46rpx;height:46rpx;
+   vertical-align: middle;
+   margin:0 10rpx;
+}
+.stayClalendar_content{
+   padding-top:48rpx;
+}
+
+
+.clalendar_container{
+  padding:0 0rpx 40rpx;
+  font-family: PingFangSC-Medium, sans-serif;
+}
+.clalendar_title{
+  text-align: center;
+  font-size:30rpx;
+  margin-bottom: 30rpx;
+}
+.clalendar_week{
+  display: flex;
+  line-height: auto;
+  font-size:26rpx;
+  text-align: center;
+  margin-bottom:30rpx;
+}
+.clalendar_week_item{flex: 1;}
+.clalendar_content{
+   display: flex;
+   flex-wrap: wrap;
+   align-content:space-between;
+   height:400rpx;
+  text-align: center;
+}
+.clalendar_content .clalendar_date_box{
+   width:calc(100% / 7);
+   text-align: center;
+}
+.clalendar_content .clalendar_date_box .clalendar_date{
+  width:46rpx;
+  height:46rpx;
+  line-height: 46rpx;
+  text-align:center;
+  font-size:26rpx;
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  box-sizing: border-box;
+}
+.bd2solid{
+  border:2rpx solid #d8d8d8;
+}
+.Colord8d8d8{color:#d8d8d8}
+.Colored3439{color:#ed3439;border-color:#ed3439;}
+.bgcolord8d8d8{background-color:#d8d8d8;color:#ffffff;}
+.bgcolord8d8d8::after{
+  content: '';
+  width:2rpx;
+  height:46rpx;
+  background-color:#ffffff;
+  display: inline-block;
+  position: absolute;
+  left:50%;
+  top:50%;
+  margin-left:-1rpx;
+  margin-top:-23rpx;
+  transform: rotate(-45deg)
+}

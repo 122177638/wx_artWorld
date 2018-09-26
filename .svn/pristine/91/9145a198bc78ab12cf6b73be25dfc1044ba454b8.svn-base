@@ -1,0 +1,89 @@
+/* pages/register/register.wxss */
+
+.register_container{
+  background-color:#000000;
+  font-family: PingFangSC-Medium, sans-serif;
+  width:100vw;
+  height:100vh;
+  position: relative;
+  color:#ffffff;
+}
+.register_welcome{
+  padding-top:122rpx;
+  text-align: center;
+  font-size:36rpx;
+  color:#ffffff;
+  padding-bottom: 86rpx;
+}
+
+.forms{
+  margin:0 55rpx;
+  padding:44rpx 0 30rpx 0;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #d8d8d8;
+  font-size:30rpx;
+  display: flex;
+  align-items: center;
+  font-family: PingFangSC-Regular, sans-serif;
+}
+.form_point{
+  padding-left:28rpx;
+  padding-right:64rpx;
+}
+.form_input{
+  width:380rpx;
+}
+.form_input2{
+  width:100%;
+}
+.form_icon{
+  width:14rpx;
+  height:24rpx;
+}
+
+.form_point_icon{
+  width:28rpx;
+  height:42rpx;
+  padding-left:28rpx;
+  padding-right:30rpx;
+}
+.form_point_icon2{
+  width:30rpx;
+  height:36rpx;
+  padding-left:28rpx;
+  padding-right:30rpx;
+}
+.getReg{
+  font-size:26rpx;
+  color:#ed3439;
+}
+.timeout{
+  font-size:30rpx;
+  width:120rpx;
+  text-align: center;
+}
+.form_submit{
+  margin:140rpx auto  0;
+  text-align: center;
+  width:640rpx;
+  height:78rpx;
+  line-height: 78rpx;
+  background-color:rgba(255,255,255,0.5);
+  border-radius: 70rpx;
+  font-size:36rpx;
+  font-family: PingFangSC-Medium, sans-serif;
+  color:#000000;
+}
+.End_submit{
+   background-color:rgba(255,255,255,1);
+}
+.form_service{
+  position: absolute;
+  bottom:40rpx;
+  font-family: PingFangSC-Regular, sans-serif;
+  font-size:24rpx;
+  color:#ffffff;
+  width:100%;
+  text-align: center;
+}
+.form_service text{color:#ed3439;}

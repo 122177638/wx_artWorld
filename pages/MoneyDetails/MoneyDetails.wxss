@@ -1,0 +1,21 @@
+/* pages/MoneyDetails/MoneyDetails.wxss */
+.MoneyDetails_container{
+    font-family: PingFangSC-Medium, sans-serif;
+    border-top:2rpx solid #f3f3f3;
+}
+.MoneyDetails{padding:24rpx 20rpx 20rpx;border-bottom:1rpx solid #f3f3f3;}
+.Details_row{display: flex;justify-content: space-between;margin-bottom: 16rpx;}
+.row_left{
+   font-size:30rpx;
+   color:#333333;
+   width:450rpx;
+   display:flex;
+   overflow: hidden;
+   text-overflow:ellipsis;
+   white-space:nowrap;
+}
+.row_left text{color:#1f8ae3;}
+.AddMoney{font-size:32rpx;color:#ED3439;font-weight: 600;}
+.fuwu{font-size:26rpx; color:#707070;}
+.fuwu_money{font-size:26rpx;color:#333333;}
+.Details_time{font-size:26rpx;color:#707070;}

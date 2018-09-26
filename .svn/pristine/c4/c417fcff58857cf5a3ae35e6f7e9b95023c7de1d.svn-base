@@ -1,0 +1,36 @@
+<!--pages/MyNews/MyNews.wxml-->
+<view class="MyNews_container">
+   <view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}} tab_After" data-current="0" bindtap="swichNav">{{newsT}}</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">系统消息</view>
+  </view>
+  <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 42}}px" bindchange="bindChange">
+      <swiper-item>
+         <scroll-view  scroll-y style="height:{{winHeight - 42}}px" bindscrolltolower="msgchatpage" lower-threshold="10">
+            <view class="CustomerNews" wx:for="{{msg}}" wx:for-item="item" wx:key="mid">
+               <view class="Customeritem" bindtap='navigateToChatpage'  data-uid="{{item.uid}}">
+                  <image src="{{item.userhead}}" class="CustomerPortrait"></image>
+                  <view class="Customeritem_content">
+                     <view class="Customeritem_content_top">
+                        <view class="Customeritem_name">{{item.username}}</view>
+                        <view class="Customeritem_time {{item.status==0?'timeAfter':''}}">{{item.createtime}}</view>
+                     </view>
+                     <view wx:if="{{item.ctype == 'text'}}" class="Customeritem_content_bottom">{{item.textmsg}}</view>
+                     <view wx:if="{{item.ctype == 'voice'}}" class="Customeritem_content_bottom">语音消息</view>
+                  </view>
+               </view>
+            </view>
+         </scroll-view>
+      </swiper-item>
+      <swiper-item>
+         <scroll-view  scroll-y style="height:{{winHeight - 42}}px" bindscrolltolower="systemchatpage" lower-threshold="10">
+            <view class="SystemNews">
+               <view wx:for="{{list}}" wx:key='lid' wx:for-item='item' class="Systemitem {{item.status == 0?'itemAfter':''}}" bindtap='gotonews' data-str="{{item.path}}" data-cid="{{item.id}}">
+                  <image src="{{item.iconurl}}" class="News_icon"></image>
+                  <view class="News_content">{{item.tip}}{{item.content}}</view>
+               </view>
+            </view>
+         </scroll-view>
+      </swiper-item>
+   </swiper>
+</view>

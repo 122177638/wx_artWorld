@@ -1,0 +1,15 @@
+<!--pages/Withdrawals/Withdrawals.wxml-->
+<view class="Withdrawals_container">
+   <view class="Withdrawals_top">
+      <view class="totalMoney"><text>{{totalMoney}}</text>元</view>
+      <view class="totalMoney_point">提现到微信红包</view>
+   </view>
+   <view class="Withdrawals_center">
+      <view class="Withdrawals_import">
+         <view class="MoneySize">￥</view><input type='digit' class="importMoney" placeholder='请输入提现金额' value="{{Money}}" bindinput='getMoneyNumChange'></input>
+         <view class="totalMoneyBtn" bindtap='getTotalMoneyNum'>全部提现</view>
+      </view>
+   </view>
+   <view class="Withdrawals_point">*提现不收取手续费，预计一个工作日内到账</view>
+   <view class="Withdrawals_btn" style="background-color:{{MoneyError?'rgba(242,109,95,1)':'rgba(242,109,95,0.5)'}}" bindtap="{{MoneyError?'WithdrawalsChange':''}}">立即提现</view>
+</view>

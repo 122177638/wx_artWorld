@@ -1,0 +1,229 @@
+/* pages/MyHomePage/MyHomePage.wxss */
+.MyHomePage_container{
+  font-family: PingFangSC-Medium, sans-serif;
+  padding-bottom: 50rpx;
+}
+.MyHomePage_banner{
+  height:340rpx;
+  width:100%;
+}
+.MyHomePage_content{
+  position: relative;
+  margin-left:88rpx;
+  border-left:2rpx solid #d8d8d8;
+}
+.MyHomePage_portrait{
+  width:140rpx;
+  height:140rpx;
+  border-radius: 50%;
+  position: absolute;
+  left:-70rpx;
+  top:-70rpx;
+}
+.Publication_right{
+  text-align: right;
+  height:104rpx;
+}
+.Publication{
+  width:204rpx;
+  height:74rpx;
+  color:#ffffff;
+  font-size:34rpx;
+  text-align: center;
+  line-height: 74rpx;
+  border-top-left-radius:70rpx;
+  border-bottom-left-radius: 70rpx;
+  background-color:#ED3439;
+  box-shadow:0rpx 0rpx 30rpx #ED3439;
+  margin-top:30rpx;
+  display: inline-block;
+}
+.Publication::before{
+  content:'+';
+  font-size:36rpx;
+  color:#ffffff;
+  display: inline-block;
+  margin-right:10rpx;
+}
+
+.dynamic_container .dynamic_item:last-child::after{
+  content: '';
+  width:26rpx;
+  height:26rpx;
+  background-color:#ED3439;
+  display: inline-block;
+  border-radius: 50%;
+  position: absolute;
+  left:-13rpx;
+  bottom:0rpx;
+}
+.dynamic_point{
+   padding:50rpx 20rpx;
+   text-align: center;
+   font-size:32rpx;
+   color:#989898;
+}
+.dynamic_item{
+  padding:0 26rpx 50rpx;
+  position: relative;
+  font-family: PingFangSC-Regular, sans-serif;
+}
+.dynamic_item::before{
+  content: '';
+  width:26rpx;
+  height:26rpx;
+  background-color:#ED3439;
+  display: inline-block;
+  border-radius: 50%;
+  position: absolute;
+  left:-13rpx;
+  top:13rpx;
+}
+.dynamic_time{
+  font-size:32rpx;
+  color:#000000;
+  margin-bottom: 12rpx;
+}
+
+.dynamic_content{
+  background-color:#F3F3F3;
+  border-radius: 10rpx;
+  padding:20rpx 8rpx 20rpx 18rpx;
+}
+.dynamic_title{
+  font-size:26rpx;
+  color:#333333;
+  position: relative;
+  padding-right:50rpx;
+  
+  overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 3;
+   -webkit-box-orient: vertical;
+}
+.dynamic_title text{word-break: break-all;word-wrap: break-word;}
+.fenxiang_btn{
+  width:50rpx;
+  height:50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  padding:0;
+  margin:0;
+  position: absolute;
+  right:12rpx;
+  top:-8rpx;
+  background-color:transparent;
+}
+.fenxiang_btn::after{border:none;}
+.fenxiang_icon{
+  width:26rpx;
+  height:26rpx;
+  display: inline-block;
+}
+/*  四宫格 */
+.dynamic_imgs{
+  padding:20rpx 0;
+}
+.dynamic_img{
+  width:240rpx;
+  height:180rpx;
+  vertical-align: middle;
+}
+/* 九宫格  */
+.dynamic_imgs9{
+  padding:20rpx 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.dynamic_img9{
+  width:190rpx;
+  height:148rpx;
+  margin-right:7rpx;
+  margin-bottom:10rpx;
+  vertical-align: middle;
+}
+.dynamic_img9:nth-child(3n){margin-right:0;}
+.Location{padding-bottom: 20rpx;display: flex;align-items: center;}
+.Location text{
+  font-size:22rpx;
+  color:#989898;
+}
+.Location_icon{
+  width:22rpx;
+  height:24rpx;
+  padding-right:10rpx;
+  vertical-align: middle;
+}
+.yuedu_icon1{
+  width:30rpx;
+  height:18rpx;
+  padding-right:10rpx;
+  vertical-align: middle;
+}
+.yuedu_icon2{
+  width:20rpx;
+  height:18rpx;
+  padding-right:10rpx;
+  vertical-align: middle;
+}
+.yuedu_icon3{
+  width:22rpx;
+  height:20rpx;
+  padding-right:10rpx;
+  vertical-align: middle;
+}
+.yueduBox{
+  display: flex;
+}
+.yuedu{
+  margin-right:60rpx;
+  font-size:22rpx;
+  color:#989898;
+}
+
+/* 视频  */
+/* 四宫格  */
+.Photos_home{
+   position: relative;
+}
+.Photos_homeImg{
+   width:350rpx;
+   height:350rpx;
+   border-radius: 10rpx;
+   vertical-align: middle;
+}
+/* 九宫格  */
+.Photos_home9{
+   position: relative;
+}
+.Photos_homeImg9{
+   width:190rpx;
+   height:148rpx;
+   border-radius: 10rpx;
+}
+.videoBg{
+   background-color:rgba(0,0,0,0.5);
+   position:absolute;
+   top:0;
+   left:0;
+   width:100%;
+   height:100%;
+   z-index:8;
+   border-radius: 10rpx;
+}
+.bofangBtn{
+   width:56rpx;
+   height:56rpx;
+   position: absolute;
+   left:50%;
+   top:50%;
+   transform: translate(-50%,-50%)
+}
+.delete_icon{
+   width:54rpx;height:54rpx;
+   position: absolute;
+   right:10rpx;
+   top:10rpx;
+   z-index: 22;
+}

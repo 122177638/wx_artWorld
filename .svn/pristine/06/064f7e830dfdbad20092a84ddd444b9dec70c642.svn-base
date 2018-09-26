@@ -1,0 +1,33 @@
+<!--pages/MyAccount/MyAccount.wxml-->
+<view class="MyAccount_container">
+   <view class="AccountDetails"> <view class="Details_btn" bindtap='navigateToMoneyDetails'>账户明细</view></view>
+   <view class="currentAccount">
+      <text>当前账户余额</text>
+      <view class="currentMoney"><text>{{mymoney}}</text>元</view>
+   </view>
+   <view class="MoneyBtnBox">
+      <view class="RechargeBtn" bindtap='rewardShow'>充值</view>
+      <view class="WithdrawalsBtn" bindtap='navigateToWithdrawals'>提现</view>
+   </view>
+
+   <!-- 打赏金额弹窗  -->
+  <view class="S_tc" catchtap='Tos_tc_show' wx:if="{{s_tc_show}}">
+    <view class="S_tc_container {{s_tc_show?'S_tc_animation':''}}" catchtap="nullChange">
+      <view class="S_tc_content">
+        <!-- <view class="S_tc_txt">觉得{{toname}}说的不错给TA赏一个吧</view> -->
+        <view class="S_tc_title">充值金额</view>
+        <view class="S_tc_money">
+          <view class="S_tc_money_btn {{activeMoney==200?'S_tc_money_btn_active':''}}" data-money='200' catchtap='FnActive'>200元</view>
+          <view class="S_tc_money_btn {{activeMoney==400?'S_tc_money_btn_active':''}}" data-money='400' catchtap='FnActive'>400元</view>
+          <view class="S_tc_money_btn {{activeMoney==800?'S_tc_money_btn_active':''}}" data-money='800' catchtap='FnActive'>800元</view>
+        </view>
+        <view class="S_tc_money">
+          <view class="S_tc_money_btn {{activeMoney==1500?'S_tc_money_btn_active':''}}" data-money='1500' catchtap='FnActive'>1500元</view>
+          <view class="S_tc_money_btn {{activeMoney==3000?'S_tc_money_btn_active':''}}" data-money='3000' catchtap='FnActive'>3000元</view>
+          <input type='number'  class="S_tc_money_input" placeholder-style='color:#959595;font-size:24rpx;' placeholder='其他金额' bindfocus="activeMoneyHidden" bindinput='importMoney' bindblur="EndMoney"></input>
+        </view>
+        <view class="DetermineBtn" catchtap='DetermineMoney'>确定</view>
+      </view>
+    </view>
+  </view>
+</view>

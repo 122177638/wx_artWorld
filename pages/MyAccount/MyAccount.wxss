@@ -1,0 +1,131 @@
+/* pages/MyAccount/MyAccount.wxss */
+.MyAccount_container{
+   font-family: PingFangSC-Medium, sans-serif;
+   border-top:2rpx solid #f3f3f3;
+}
+.AccountDetails{
+   text-align: right;
+   padding:30rpx 50rpx 0;
+}
+.Details_btn{
+   font-size:32rpx;
+   color:#333333;
+   display: inline-block;
+}
+.currentAccount{padding:138rpx 0 119rpx 0;text-align: center;}
+.currentAccount text{font-size:36rpx;color:#333333;}
+.currentMoney{font-size:36rpx;color:#333333;margin-top:80rpx;}
+.currentMoney text{font-size:52rpx;color:#ed3439;}
+
+.MoneyBtnBox{text-align: center;}
+.RechargeBtn{
+   width:640rpx;
+   height:88rpx;
+   color:#ffffff;
+   font-size:36rpx;
+   background-color:#f26d5f;
+   text-align: center;
+   line-height: 88rpx;
+   border-radius: 15rpx;
+   margin-bottom: 38rpx;
+   display: inline-block;
+}
+.WithdrawalsBtn{
+   width:640rpx;
+   height:88rpx;
+   color:#333333;
+   font-size:36rpx;
+   background-color:#ffffff;
+   text-align: center;
+   line-height: 88rpx;
+   border-radius: 15rpx;
+   display: inline-block;
+   border:2rpx solid #f26d5f;
+}
+
+
+/* 打赏弹窗 */
+.S_tc{
+  position: fixed;
+  background-color:rgba(0, 0, 0, 0.7);
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index: 98;
+}
+.S_tc_container{
+  position: absolute;
+  left:50%;
+  margin-left:-310rpx;
+  bottom:180rpx;
+  width:620rpx;
+  background-color:#ffffff;
+  border-radius:30rpx;
+}
+.S_tc_animation{
+  animation: bottomMove 300ms ease-out forwards;
+}
+ @keyframes bottomMove{
+   0%{bottom:-600rpx;}
+  100%{bottom:180rpx;} 
+} 
+.S_tc_content{
+  position: relative;
+  padding:0 46rpx 34rpx;
+}
+.S_tc_txt{
+  text-align:center;
+  font-size:26rpx;
+  color:#7b7b7b;
+  padding-top:60rpx;
+  padding-bottom: 38rpx;
+}
+.S_tc_title{
+  text-align: center;
+  font-size:45rpx;
+  padding-top:60rpx;
+  color:#9d1b06;
+  font-weight: 600;
+  padding-bottom: 38rpx;
+}
+.S_tc_money{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 24rpx;
+}
+.S_tc_money_btn{
+  width:162rpx;
+  height:60rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 60rpx;
+  color:#DE252F;
+  font-size:30rpx;
+  border: 2rpx solid #DE252F;
+}
+.S_tc_money_input{
+  width:162rpx;
+  height:60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  color:#DE252F;
+  font-size:30rpx;
+  border: 2rpx solid #959595;
+}
+.S_tc_money_btn_active{
+  background-color:#DE252F;
+  color:#ffffff;
+}
+.DetermineBtn{
+  width:516rpx;
+  height:64rpx;
+  background-color:#DE252F;
+  color:#ffffff;
+  text-align: center;
+  line-height: 64rpx;
+  border-radius: 10rpx;
+  margin:34rpx auto 0;
+  font-size:36rpx;
+
+}

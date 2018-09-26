@@ -1,0 +1,27 @@
+<!--pages/registerTwo/registerTwo.wxml-->
+<view class="registerTwo_container">
+  <view class="registerTwo_identity"> 请选择你的身份</view>
+  <view class="registerTwo_identity_box">
+    <view class="registerTwo_identity_list" data-identity='artist' bindtap='getidentityChange'>
+      <image src="/images/img_yiren.png" class="identity_icon"></image>
+      <text>艺人</text>
+      <view class="p_abs" hidden='{{occupationShow}}'>主持人、歌手、演员、模特、舞蹈、乐队、乐手、曲艺、魔术师、杂技团、音乐人、影视人、经纪人、摄制组、造型师、童星、配音师、人气主播、等专业演职人员注册入口</view>
+    </view>
+    <view class="registerTwo_identity_list" data-identity='Employer' bindtap='getidentityChange'>
+      <image src="/images/img_guzhu.png" class="identity_icon"></image>
+      <text>主办方/客户</text>
+      <view class="p_abs2" hidden='{{occupationShow}}'>演出活动主办方、活动负责人、节目总监、普通用户、邀请艺人或查看艺人资料的注册入口</view>
+    </view>
+  </view>
+  <!-- 选择职业  -->
+  <view class="registerTwo_occupation_container" wx:if="{{occupationShow}}">
+    <view class="occupation_title">请选择职业<text>（最多选择三个类别）</text> </view>
+    <scroll-view  scroll-y="true" class="occupation_list">
+      <view class="occupation_item" wx:for="{{occupationArray}}" data-oid='{{item.oid}}' wx:key="id" bindtap='getOccupationChange'>
+        <view class="occupation_name">{{item.occupation}}</view>
+        <image src="/images/img_xuanzhong.png" wx:if="{{item.Oactive}}" class="active_icon"></image>
+      </view>
+    </scroll-view>
+    <view class="getidentityEnd {{activeNum != 0?'EndGetid':''}}" bindtap="navigateToNextRegister">下一步</view>
+  </view>
+</view>

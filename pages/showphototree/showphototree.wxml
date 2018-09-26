@@ -1,0 +1,11 @@
+<view class='container'>
+   <view class="img_container">
+      <view class="addimg {{item.imgurl!=''?'imgwrap':''}}" data-order='{{index}}' bindtap="{{uid?'addImgEvent':''}}" wx:for="{{imgs}}" wx:key="imgs.id" wx:if="{{uid || item.imgurl != ''}}">
+         <image src="{{item.imgurl}}" mode="aspectFill" class="_img" wx:if="{{item.imgurl != ''}}"></image>
+         <text wx:else>+</text>
+      </view>
+   </view>
+   <view class="img_descrition">
+      <textarea maxlength='-1' class="import_item_data" placeholder='描述' value="{{Sketch.content}}" bindinput='getSketchChange' disabled="{{!uid}}"></textarea>
+   </view>
+</view>

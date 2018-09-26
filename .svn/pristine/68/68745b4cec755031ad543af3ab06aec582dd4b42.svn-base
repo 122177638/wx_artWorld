@@ -1,0 +1,41 @@
+<!--pages/MyApplication/MyApplication.wxml-->
+<view class="MyApplication_container">
+   <view class="point" wx:if="{{applicationArr.length ==  0}}">
+      暂无申请记录
+   </view>
+   <view class="OrderDetails_list" wx:for="{{applicationArr}}" wx:key="id" wx:for-item="OrderDetails">
+      <view class="OrderDetails_title">雇主</view>
+      <view class="OrderDetails_userMsg">
+         <image src="{{OrderDetails.userPortrait}}" class="userPortrait"></image>
+         <text>{{OrderDetails.userName}}</text>
+      </view>
+      <view class="OrderDetails_title">服务详情</view>
+      <view class="OrderDetails_content">
+         <view class="content_title">
+            <view>{{OrderDetails.title}}</view><view>{{OrderDetails.sign}}</view>
+         </view>
+         <view class="content_row">{{OrderDetails.content}}</view>
+         <view class="content_line">擅长风格： {{OrderDetails.style}}</view>
+         <view class="content_line">演出地址： {{OrderDetails.address}}</view>
+         <view class="content_line">演出时间： {{OrderDetails.playTime}}</view>
+         <view class="content_line">演出价格： <text class="red">￥{{OrderDetails.playMoney}}</text></view>
+         <view class="content_line">演员要求： {{OrderDetails.demand}}</view>
+      </view>
+      <view class="OrderDetails_foot"><view class="OrderDetails_btn" data-oid='{{OrderDetails.oid}}' bindtap='cancelChange'>取消申请</view></view>
+   </view>
+   <!-- 弹窗  -->
+   <view class="tc_bg" wx:if="{{tcBoolean}}">
+      <view class="tc_container">
+         <view class="tc_content">
+            <view class="tc_title">是否取消申请</view>
+            <view class="tc_point_content">
+               取消申请签约后,雇主将无法从此订单处和你签约.
+            </view>
+         </view>
+         <view class="tc_foot">
+            <view class="tc_cancel_btn" bindtap='tc_cancelChange'>取消</view>
+            <view class="tc_Determine_btn" bindtap='tc_DetermineChange'>确定</view>
+         </view>
+      </view>
+   </view>
+</view>

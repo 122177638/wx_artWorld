@@ -1,0 +1,68 @@
+/* pages/EPMessage/EPMessage.wxss */
+.myMessage_container{
+   font-family: PingFangSC-Medium, sans-serif;
+}
+.myMessage_top{
+   border-bottom:8rpx solid #f3f3f3;
+}
+.myMessage_header{
+   display: flex;
+   align-items: center;
+   padding-top:38rpx;
+   padding-bottom: 28rpx;
+}
+.userPortrait{width:140rpx;height:140rpx;margin-left:30rpx;border-radius: 50%;margin-right:20rpx;}
+.userMsg .userName{padding-bottom: 38rpx;font-size:34rpx;color:#000000;}
+.userMsg .userOccupation{font-size:28rpx;color:#000000;}
+.userPagelist{
+   margin-top:36rpx;
+   margin-bottom: 50rpx;
+   display: flex;
+}
+.userPagelist .list{width:calc(100%/3);text-align: center;position:relative;font-size:26rpx;color:#333333;}
+.userHome::after,.userAnnouncement::after{
+   content: '';
+   width:2rpx;
+   height:80rpx;
+   position: absolute;
+   background-color:#d8d8d8;
+   top:0;right:0;
+}
+.PagelistIcon{
+   width:56rpx;
+   height:56rpx;
+   padding-bottom: 26rpx;
+}
+.userMypages{padding-left:30rpx;}
+.Mypage{
+   padding:38rpx 0px 30rpx;
+   border-bottom: 2rpx solid #d8d8d8;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.Mypage view{display: flex;align-items: center;}
+.Mypage .Mypage_left{font-size:30rpx; color:#333333;}
+.Mypage .Mypage_right{font-size:26rpx;color:#333333;}
+.Mypage_icon{
+   width:38rpx;
+   height:38rpx;
+   padding-right:34rpx;
+}
+.Mypage_icon_ss{width:18rpx;height:30rpx;padding:0 20rpx;}
+.butBtn{
+   margin:0;
+   line-height: 1.4;
+   background-color:#ffffff;
+   border-radius: 0;
+}
+.butBtn::after{border:none;}
+.logo{
+  background:url("http://qiniu.ddznzj.com//media/180517/180517103946621.png") no-repeat;
+  background-size:100% 100%;
+  width:182rpx;
+  height:56rpx;
+  padding:0;
+  margin:0;
+}
+.logo::after{border:none;}

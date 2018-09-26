@@ -1,0 +1,21 @@
+<!--pages/setPhotos/setPhotos.wxml-->
+<view class="setPhotos_container">
+   <view class="setPhotos_top" bindtap='addPhotosArr' wx:if="{{!boxHidden}}">添加相册</view>
+   <view wx:if="{{boxHidden==true && PhotosAggregate.length ==0}}" class="p_point">这家伙太懒了，什么都没有留下</view>
+   <view class="setPhotos_list">
+      <view class="setPhotos_item" wx:for="{{PhotosAggregate}}" wx:key="id" data-pid='{{item.pid}}' bindtap='navigateToPhotos'>
+         <view class="Photos_home">
+            <image src="{{item.imgurl}}" mode='aspectFill' class="Photos_homeImg"></image>
+            <image src="/images/btn_shanchu.png" data-pid='{{item.pid}}' class="delete_icon" catchtap='deletePhotosChange' wx:if="{{!boxHidden}}"></image>
+         </view>
+         <view class="Photos_title">{{item.title}}</view>
+         <view class="Photos_footnote">
+            <view>{{item.title}}</view>
+            <view wx:if="{{item.positionName!='不显示'}}">
+               <image src="/images/icon_dingwei.png" class="dingwei_icon"></image>
+               <view>{{item.area}}</view>
+            </view>
+         </view>
+      </view>
+   </view>
+</view>

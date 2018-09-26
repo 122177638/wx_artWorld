@@ -1,0 +1,17 @@
+<!--pages/stayClalendar/stayClalendar.wxml-->
+<view class="stayClalendar_container">
+   <view class="stayClalendar_title">请选择可预约时间,<image src="/images/img_bukeyuyue.png" class="clalendar_icon"></image>表示为不可预约</view>
+   <view class="stayClalendar_content">
+      <view wx:for="{{clalendarData}}" wx:key="id" class="clalendar_container">
+      <view class="clalendar_title">{{item.CYear+'年'+item.CMonth+'月'}}</view>
+      <view class="clalendar_week">
+         <view class="clalendar_week_item"  wx:for="{{item.Cweek}}"wx:key="id" wx:for-item="Cweek">{{Cweek}}</view>
+      </view>
+      <view class="clalendar_content">
+         <view class="clalendar_date_box" wx:for="{{item.Cdate}}" wx:key="id" wx:for-item="Cdate" >
+            <view class="clalendar_date {{Cdate.cid==null?'':'bd2solid'}} {{today>Cdate.cid?'Colord8d8d8':''}} {{today==Cdate.cid?'Colored3439':''}} {{Cdate.toAbut?'bgcolord8d8d8':''}}"data-cid='{{Cdate.cid}}' bindtap="{{today>Cdate.cid?'':'setDateChange'}}">{{Cdate.Cdate}}</view>
+         </view>  
+      </view>
+      </view>
+   </view>
+</view>

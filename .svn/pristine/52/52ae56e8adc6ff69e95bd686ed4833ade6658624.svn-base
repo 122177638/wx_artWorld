@@ -1,0 +1,484 @@
+// pages/setDetails/setDetails.jsz
+//唯一id
+function uuid(len, radix) {
+  var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+  var uuid = [], i;
+  radix = radix || chars.length;
+  if (len) {
+    for (i = 0; i < len; i++) uuid[i] = chars[0 | Math.random() * radix];
+  } else {
+    var r;
+    uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
+    uuid[14] = '4';
+    for (i = 0; i < 36; i++) {
+      if (!uuid[i]) {
+        r = 0 | Math.random() * 16;
+        uuid[i] = chars[(i == 19) ? (r & 0x3) | 0x8 : r];
+      }
+    }
+  }
+  return uuid.join('');
+}
+//上下排序
+function revser(arr){
+  for (var i = 0; i < arr.length; i++) {
+    arr[i].shangyi = false;
+    arr[i].xiayi = false;
+    if (arr.length <= 1) {
+      arr[0].shangyi = true;
+      arr[0].xiayi = true;
+    } else if (arr.length > 1) {
+      arr[0].shangyi = true;
+      arr[arr.length - 1].xiayi = true;
+    }
+  }
+}
+
+const app = getApp();
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    text:"text",
+    textImg:"textImg",
+    itemArr: [],
+    BJmoshi:'',
+    gglogo:'',
+    ggname:'',
+    winHeight:0,
+  },
+  additem:function(){
+    var that = this;
+    wx.showActionSheet({
+      itemList: ['添加文字', '添加图片'],
+      itemColor: "#222222",
+      success: function (res) {
+        if (res.tapIndex =="0"){
+          var arr = that.data.itemArr;
+          arr = that.data.itemArr.concat([{ category: "text", id: uuid(8, 16), text: '',shangyi:false,xiayi:false,tid:''}])
+          revser(arr);//新增排序判断
+          that.setData({
+            itemArr: arr
+          })
+        }
+        if (res.tapIndex == "1") {
+          wx.chooseImage({
+            count: 1, // 默认9
+            sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+            sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+            success: function (res) {
+              // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+              var tempFilePaths = res.tempFilePaths;
+              var length = that.data.itemArr.length;
+              var arr = that.data.itemArr;
+              arr = that.data.itemArr.concat([{ category: "textImg",id:uuid(8,16),text:'',imgURL: tempFilePaths,tid:''}])
+              revser(arr);//新增排序判断
+              that.setData({
+                itemArr: arr
+              })
+            }
+          })
+        }
+      },
+      fail: function (res) {
+        console.log(res.errMsg)
+      }
+    })
+  },
+  delet:function(e){
+    var that = this;
+    var index = e.currentTarget.dataset.index;
+    var items = that.data.itemArr;
+    for(var i=0;i<items.length;i++){
+      if (index == items[i].id){
+        wx.showModal({
+        title: '提示',
+        content: '是否删除该模块',
+        success: function (res) {
+          if (res.confirm) {
+            console.log(items[i])
+            items.splice(i,1)
+            that.setData({
+              itemArr: items
+            })
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+        })
+        break;
+      }
+    }
+  },
+  onshangyi:function(e){
+    var index = e.currentTarget.dataset.index;
+    var that = this;
+    var arr =that.data.itemArr;
+    for (var i=0;i<arr.length;i++){
+      if (arr[i].id == index){
+        [arr[i], arr[i -1]] = [arr[i -1], arr[i]]
+        that.setData({
+          itemArr: arr
+        })
+        break;
+      }
+    }
+    revser(arr);//新增排序判断
+    that.setData({
+      itemArr: arr
+    })
+  },
+  onxiayi:function(e){
+    var index = e.currentTarget.dataset.index;
+    var that = this;
+    var arr = that.data.itemArr;
+    for (var j = 0; j < arr.length;j++) {
+      if (arr[j].id == index) {
+        var x = j,y = j +1;
+        [arr[y], arr[x]] = [arr[x], arr[y]]
+        that.setData({
+          itemArr: arr
+        })
+      break;
+      }
+    }
+    revser(arr);//新增排序判断
+    that.setData({
+      itemArr: arr
+    })
+  },
+  getText:function(e){
+    var that = this;
+    var text = e.detail.value;
+    var id = e.currentTarget.dataset.id;
+    var arr = that.data.itemArr;
+    for (var i = 0; i < arr.length;i++){
+      if (id == arr[i].id){
+        arr[i].text = text;
+        this.setData({
+          itemArr: arr
+        })
+      }
+    }
+  },
+  navigataToGoback:function(){
+    var that = this;
+  
+    var dd = that.data.itemArr;
+    var ty = that.data.BJmoshi == "GGBJ" ? 1 : 2;
+    if (that.data.BJmoshi == "YHJJPBJ"){
+      ty=3
+    }
+    if (dd[0].category == "text"){
+      that.uploadtext(0, dd);
+    }else{
+      that.uploadimg(0, dd);
+    }
+    //console.log("to page --->");
+    //console.log(wx.getStorageSync('gglist'));
+    /**/
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var that = this;
+    //获取手机信息
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          winWidth: res.windowWidth,
+          winHeight: res.windowHeight,
+        });
+      }
+    });
+    // this.setData({
+    //   BJmoshi: options.point
+    // })
+    
+    // var ff = JSON.parse(options.gglogo)
+    // if (ff != "../../images/addFeil.png"){
+    //   that.setData({
+    //     gglogo: ff[0],
+    //     ggname: options.ggname
+    //   })
+    //   //console.log(that.data.gglogo)
+    // }
+    // if (options.point == "GGBJ") {
+    //   //console.log(wx.getStorageSync('gglist'))
+    //   if (wx.getStorageSync('gglist') != null && wx.getStorageSync('gglist') != ""){
+    //     this.setData({
+    //       itemArr: wx.getStorageSync('gglist')
+    //     })
+    //   }else{
+    //     this.setData({
+    //       itemArr: []
+    //     })
+    //   }
+    // } else if (options.point == "JPBJ"){
+    //   //console.log(wx.getStorageSync('jplist'))
+    //   if (wx.getStorageSync('jplist') != null && wx.getStorageSync('jplist') != "") {
+    //     this.setData({
+    //       itemArr: wx.getStorageSync('jplist')
+    //     })
+    //   } else {
+    //     this.setData({
+    //       itemArr: []
+    //     })
+    //   }
+    // } else if (options.point == "YHJJPBJ"){
+    //   //console.log(wx.getStorageSync('yhqlist'))
+    //   if (wx.getStorageSync('yhqlist') != null && wx.getStorageSync('yhqlist') != "") {
+    //     this.setData({
+    //       itemArr: wx.getStorageSync('yhqlist')
+    //     })
+    //   } else {
+    //     this.setData({
+    //       itemArr: []
+    //     })
+    //   }
+    // }
+    if (this.data.BJmoshi != 'GGBJ'){
+      wx.setNavigationBarTitle({
+        title: '奖品详情'//页面标题
+      })
+    }
+    console.log(this.data.BJmoshi)
+  },
+  uploadtext: function (index, dd){
+    var that = this;
+    var bean = dd[index];
+    var ty = this.data.BJmoshi == "GGBJ" ? 1 : 2;
+    if (that.data.BJmoshi == "YHJJPBJ") {
+      ty = 3
+    }
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.request({
+      url: app.globalData.baseurl + 'redpacket/picTextEdit?text=' + bean.text + "&type=" + ty + "&id=" + bean.tid,
+      method: 'POST',
+      success: function (res) {
+        dd[index].tid = res.data.obj;
+        if (index == dd.length - 1) {
+          if (ty == 1) {
+            wx.setStorageSync('gglist', dd);
+            console.log(wx.getStorageSync('gglist'));
+          } else if (ty == 2) {
+            wx.setStorageSync('jplist', dd);
+            console.log(wx.getStorageSync('jplist'));
+          } else {
+            wx.setStorageSync('yhqlist', dd);
+            console.log(wx.getStorageSync('yhqlist'));
+          }
+          console.log("run text last")
+          that.topages()
+        }else{
+          if (index < dd.length - 1){
+            //判断是文字还是图片
+            var nextindex = index + 1;
+            if (dd[nextindex].category == "text") {
+              that.uploadtext(nextindex, dd);
+            }else{
+              that.uploadimg(nextindex, dd);
+            }
+          }
+        }
+      },
+      fail: function (res) {
+        wx.showToast({
+          title: "提交失败",
+          icon: "none"
+        })
+      },
+      complete: function (res) {
+        wx.hideLoading();
+      }
+    })
+  }, 
+  uploadimg: function (index, dd){
+    var that = this;
+    var bean = dd[index];
+    var ty = this.data.BJmoshi == "GGBJ" ? 1 : 2;
+    if (that.data.BJmoshi == "YHJJPBJ") {
+      ty = 3
+    }
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.uploadFile({
+      url: app.globalData.baseurl + 'redpacket/picTextEdit',
+      filePath: bean.imgURL[0],
+      name: 'file',
+      formData: {
+        text: bean.text,
+        type: ty,
+        id: bean.tid
+      },
+      success: function (res) {
+        var obj = JSON.parse(res.data);
+        dd[index].tid = obj.obj;
+        if (index == dd.length - 1) {
+          if(ty == 1){
+            wx.setStorageSync('gglist', dd);
+            console.log(wx.getStorageSync('gglist'));
+          } else if (ty == 2){
+            wx.setStorageSync('jplist', dd);
+            console.log(wx.getStorageSync('jplist'));
+          }else{
+            wx.setStorageSync('yhqlist', dd);
+            console.log(wx.getStorageSync('yhqlist'));
+          }
+          console.log("run img last")
+          that.topages()
+        }else{
+          if (index < dd.length - 1) {
+            //判断是文字还是图片
+            var nextindex = index + 1;
+            if (dd[nextindex].category == "text") {
+              that.uploadtext(nextindex, dd);
+            } else {
+              that.uploadimg(nextindex, dd);
+            }
+          }
+        }
+      },
+      fail: function (res) {
+        wx.hideLoading();
+        wx.showToast({
+          title: "上传图片失败",
+          icon: "none"
+        })
+      },
+      complete: function (res) {
+        wx.hideLoading();
+      }
+    })
+  },
+  topages:function(){
+    var that = this;
+    var pages = getCurrentPages();
+    var currPage = pages[pages.length - 1];   //当前页面
+    var prevPage = pages[pages.length - 2];  //上一个页面
+    if (that.data.BJmoshi == 'JPBJ') {
+      if (that.data.itemArr == '') {
+        prevPage.setData({
+          JPdetails: that.data.itemArr,
+          JPBJend: '编辑'
+        });
+        wx.navigateBack();
+      } else {
+        prevPage.setData({
+          JPdetails: that.data.itemArr,
+          JPBJend: '修改'
+        });
+        wx.navigateBack();
+      }
+    }
+    if (that.data.BJmoshi == 'GGBJ') {
+      if (that.data.itemArr == '') {
+        prevPage.setData({
+          GGdetails: that.data.itemArr,
+          GGBJend: '编辑'
+        });
+        wx.navigateBack();
+      } else {
+        prevPage.setData({
+          GGdetails: that.data.itemArr,
+          GGBJend: '修改'
+        });
+        wx.navigateBack();
+      }
+    }
+
+    if (that.data.BJmoshi == 'YHJJPBJ') {
+      if (that.data.itemArr == '') {
+        prevPage.setData({
+          YHJJPdetails: that.data.itemArr,
+          YHJBJend: '编辑'
+        });
+        wx.navigateBack();
+      } else {
+        prevPage.setData({
+          YHJJPdetails: that.data.itemArr,
+          YHJBJend: '修改'
+        });
+        wx.navigateBack();
+      }
+    } 
+  },
+
+  navigataTodetails:function(){
+    var that = this;
+    const BJmoshi = that.data.BJmoshi;
+    if (BJmoshi == 'GGBJ' || BJmoshi == 'JPBJ'){
+      var pagedata = {
+        ttype:BJmoshi=='GGBJ'?2:1,
+        gglogo: that.data.gglogo,
+        ggname: that.data.ggname,
+        data: that.data.itemArr
+      }
+      wx.navigateTo({
+        url: '../ggdetails/ggdetails?pagedata=' + JSON.stringify(pagedata)
+      })
+    } else if (BJmoshi == 'YHJJPBJ'){
+      var pagedata = {
+        ttype:3,
+        data: that.data.itemArr
+      }
+      wx.navigateTo({
+        url: '../ggdetails/ggdetails?pagedata=' + JSON.stringify(pagedata)
+      })
+    }
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+  
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+  
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+  
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+  
+  }
+})

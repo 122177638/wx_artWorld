@@ -1,0 +1,99 @@
+/* pages/MyApplication/MyApplication.wxss */
+.MyApplication_container{font-family: PingFangSC-Medium, sans-serif;}
+.OrderDetails_list{padding-bottom: 50rpx;}
+.point{
+   padding:50rpx;
+   text-align: center;
+   font-size:32rpx;
+   color:#333333;
+}
+.OrderDetails_title{
+   padding:10rpx 30rpx;
+   font-size:30rpx;
+   color:#333333;
+   background-color:#f3f3f3;
+   display: flex;
+   justify-content: space-between;
+}
+.OrderDetails_userMsg{ padding:20rpx 30rpx;font-size:28rpx;color:#333333;display: flex;align-items: center;}
+.userPortrait{width:66rpx;height:66rpx;border-radius: 50%;margin-right:15rpx;}
+.OrderDetails_content{padding:0 30rpx;font-size:24rpx;color:#707070;border-bottom: 2rpx solid #f3f3f3;}
+.content_title{display: flex;justify-content: space-between;padding:24rpx 0;}
+.content_title view:nth-child(1){font-size:28rpx;color:#333333;}
+.content_title view:nth-child(2){width:82rpx;height:34rpx;border:2rpx solid #ed3439;font-size:24rpx;color:#ed3439;text-align: center;line-height:34rpx;margin-right:20rpx;border-radius: 70rpx;}
+.content_row{font-size:26rpx;color:#333333;padding-right:100rpx;padding-bottom:18rpx;}
+.content_line{padding-bottom: 18rpx;}
+.red{color:#ed3439;}
+.CScolor{color:#1f8ae3;}
+.OrderDetails_foot{text-align: right;padding:20rpx;}
+.OrderDetails_btn{
+   width:174rpx;
+   height:54rpx;
+   border-radius: 10rpx;
+   font-size:26rpx;
+   border:2rpx solid #000000;
+   color:#000000;
+   text-align: center;
+   line-height: 54rpx;
+   display: inline-block;
+}
+
+/* 弹窗  */
+.tc_bg{
+   width:100%;
+   height:100%;
+   background-color:rgba(0, 0, 0, 0.5);
+   position: fixed;
+   top:0;
+   left:0;
+}
+.tc_container{
+   position: absolute;
+   width:610rpx;
+   top:25%;
+   left:50%;
+   margin-left:-305rpx;
+}
+.tc_content{
+   width:610rpx;
+   background-color:#ffffff;
+   border-radius: 15rpx;
+}
+.tc_title{
+   padding:48rpx 0 40rpx;
+   font-size:34rpx;
+   font-weight: 600;
+   color:#333333;
+   text-align: center;
+}
+.tc_point_content{
+   padding:0 40rpx 50rpx;
+   font-size:32rpx;
+   color:#333333;
+   text-align: center;
+}
+.tc_foot{
+   display: flex;
+   justify-content: space-between;
+   padding-top:34rpx;
+}
+.tc_cancel_btn{
+   width:290rpx;
+   height:80rpx;
+   line-height: 80rpx;
+   background-color:#ed3439;
+   text-align: center;
+   border-radius: 15rpx;
+   font-size:32rpx;
+   color:#ffffff;
+}
+.tc_Determine_btn{
+   width:290rpx;
+   height:80rpx;
+   line-height: 80rpx;
+   background-color:#ffffff;
+   text-align: center;
+   border-radius: 15rpx;
+   font-size:32rpx;
+   color:#333333;
+}

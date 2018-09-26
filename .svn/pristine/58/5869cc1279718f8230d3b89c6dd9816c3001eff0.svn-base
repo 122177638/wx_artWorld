@@ -1,0 +1,91 @@
+<!--pages/invoice/invoice.wxml-->
+ <form bindsubmit="formSubmit" class="form_wrap">
+      <view class="form_list">
+         <view class="form_item">
+            <view class="item_left">发票类型</view>
+            <radio-group class="item_right" bindchange="radioChange">
+               <label class="radio">
+                  <radio value="increment" color="#ed3439" checked="true"/>增值税专票 
+               </label>
+               <label class="radio">
+                  <radio value="ordinary" color="#ed3439" checked=""/>普通发票 
+               </label>
+            </radio-group>
+         </view>
+         <!-- 增值税专票  -->
+         <view wx:if="{{invoiceType=='increment'}}">
+            <view class="form_item" bindtap='getFocusEvent1'>
+               <view class="item_left">公司名称</view>
+               <view class="item_right">
+                  <input type='text' focus='{{focus1}}' name="gsName"></input>
+               </view>
+            </view>
+            <view class="form_item" bindtap='getFocusEvent2'>
+               <view class="item_left">税号</view>
+               <view class="item_right">
+                  <input type='text' focus='{{focus2}}' name="tax"></input>
+               </view>
+            </view>
+            <!--<view class="form_item" bindtap='getFocusEvent3'>
+               <view class="item_left">开户行</view>
+               <view class="item_right">
+                  <input type='text' focus='{{focus3}}' name="OpenH"></input>
+               </view>
+            </view>
+            <view class="form_item" bindtap='getFocusEvent4'>
+               <view class="item_left">银行卡账号</view>
+               <view class="item_right">
+                  <input type='text' focus='{{focus4}}' name="Bank"></input>
+               </view>
+            </view> -->
+            <view class="form_item" bindtap='getFocusEvent6'>
+               <view class="item_left">收票人姓名</view>
+               <view class="item_right">
+                  <input type='text' focus='{{focus6}}' name="SPRname"></input>
+               </view>
+            </view>
+            <view class="form_item" bindtap='getFocusEvent7'>
+               <view class="item_left">邮寄地址</view>
+               <view class="item_right">
+                  <input type='text' focus='{{focus7}}' name="YJarea"></input>
+               </view>
+            </view>
+            <view class="form_item" bindtap='getFocusEvent8'>
+               <view class="item_left">电话</view>
+               <view class="item_right">
+                  <input type='text' focus='{{focus8}}' name="phone"></input>
+               </view>
+            </view>
+            <view class="form_point">*如果需要开发票，平台将会收取8%的税费</view>
+         </view>
+         <!-- 普通发票  -->
+         <view wx:if="{{invoiceType=='ordinary'}}">
+            <view class="form_item" bindtap='getFocusEvent9'>
+               <view class="item_left">公司名称</view>
+               <view class="item_right">
+                  <input type='text' focus='{{focus9}}' name="gsName"></input>
+               </view>
+            </view>
+            <view class="form_item" bindtap='getFocusEvent11'>
+               <view class="item_left">收票人姓名</view>
+               <view class="item_right">
+                  <input type='text' focus='{{focus11}}' name="SPRname"></input>
+               </view>
+            </view>
+            <view class="form_item" bindtap='getFocusEvent12'>
+               <view class="item_left">邮寄地址</view>
+               <view class="item_right">
+                  <input type='text' focus='{{focus12}}' name="YJarea"></input>
+               </view>
+            </view>
+            <view class="form_item" bindtap='getFocusEvent13'>
+               <view class="item_left">电话</view>
+               <view class="item_right">
+                  <input type='text' focus='{{focus13}}' name="phone"></input>
+               </view>
+            </view>
+            <view class="form_point">*如果需要开发票，平台将会收取8%的税费</view>
+         </view>
+      </view>
+      <button  formType="submit" class="form_btn">确定</button>
+   </form>

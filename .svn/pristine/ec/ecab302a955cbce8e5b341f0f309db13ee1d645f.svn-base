@@ -1,0 +1,43 @@
+<!--index.wxml-->
+<view class="index_container">
+  <!-- 服务类别  -->
+  <view class="index_header">
+    <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:300rpx" bindchange="bindChange">
+      <swiper-item>
+        <view class="service_items">
+          <view class="item" wx:for="{{serviceTypeArr}}" wx:key="id" wx:for-item="service">
+            <image src="{{service.TypeIcon}}" class="item_icon"></image><text>{{service.serviceName}}</text>
+          </view>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class="service_items">
+          <view class="item" wx:for="{{serviceTypeArr2}}" wx:key="id" wx:for-item="service">
+            <image src="{{service.TypeIcon}}" class="item_icon"></image><text>{{service.serviceName}}</text>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+    <view class="swiper-tab">
+      <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav"></view>
+      <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav"></view>
+    </view>
+  </view>
+  <!-- 人气艺人 -->
+  <view class="Performers_container">
+    <view class="Performers_title">人气艺人</view>
+    <view class="Performers_content">
+      <view class="Performers_items">
+        <view class="item">
+          <image src="/images/icon_shouye1.png" class="Performers_icon"></image>
+          <view class="Performers_name">俺就拉北鼻</view>
+          <view class="Performers_star">人气值</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 热门推荐 -->
+</view>
+
+<import src="/template/tabBar/tabBar.wxml"/>  
+<template is="tabBar" data="{{tabBar}}"/>  

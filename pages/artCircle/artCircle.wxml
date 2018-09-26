@@ -1,0 +1,8 @@
+<!--pages/artCircle/artCircle.wxml-->
+<view bindtap='chooseImageChange'>编辑</view>
+<image src="{{tempFilePaths}}" class="homeImg" bindtouchstart='startChange' bindtouchend='endChange'></image>
+
+
+
+<import src="/template/tabBar/tabBar.wxml"/>  
+<template is="tabBar" data="{{tabBar}}"/>  

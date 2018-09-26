@@ -1,0 +1,477 @@
+/* pages/starData/starData.wxss */
+.starData_container{
+   width:100vw;
+   font-family: PingFangSC-Medium, sans-serif;
+}
+.starData_banner{
+  height:496rpx;
+  position: relative;
+}
+.mask30{
+  background-color:rgba(0,0,0,0.3);
+  width:100%;
+  height:496rpx;
+  position: absolute;
+}
+.starData_star_msg{
+  position: relative;
+  color:#ffffff;
+  padding:100rpx 40rpx 0;
+}
+.star_msg_name{
+  font-size:36rpx;
+}
+.star_msg_card{
+  font-size:28rpx;
+  margin-top:28rpx;
+  margin-bottom: 35rpx;
+}
+
+.star_msg_motto{
+  font-size:30rpx;
+  padding-right:130rpx;
+  position: relative;
+  color:#f0f0f0;
+}
+.textInput{width:100%;color:#f0f0f0;font-size:30rpx;}
+
+.setMotto{
+  width:48rpx;
+  height:48rpx;
+  position: absolute;
+  right:30rpx;
+  top:-4rpx;
+}
+.star_msg{
+  position: relative;
+  top:-110rpx;
+  padding-bottom: 50rpx;
+}
+.star_msg_total{
+  padding-left:40rpx;
+  padding-bottom: 80rpx;
+  display: flex;
+  align-items:flex-end;
+  justify-content:space-between;
+}
+.star_msg_left{
+  display: flex;
+  align-items:flex-end;
+}
+.star_msg_portrait{
+  width:180rpx;
+  height:180rpx;
+  border-radius: 50%;
+  margin-right:30rpx;
+}
+.star_msg_follow,.star_msg_Fans,.star_msg_read{
+  display: flex;
+  width:100rpx;
+  flex-direction: column;
+  font-size:30rpx;
+  color:#000000;
+  text-align: center;
+}
+.star_msg_follow{
+   padding:0;
+   margin:0;
+   line-height:normal;
+   background-color:transparent;
+}
+.star_msg_follow::after{border:none;}
+
+
+.follow_icon{
+  width:32rpx;
+  height:32rpx;
+  margin:0 auto;
+}
+.dynamicBtn{
+  width:164rpx;
+  height:74rpx;
+  color:#ffffff;
+  border-top-left-radius: 70rpx;
+  border-bottom-left-radius: 70rpx;
+  background-color:#ED3439;
+  text-align: center;
+  line-height: 74rpx;
+  box-sizing: border-box;
+  transform: translate3d(0,0,0);
+  animation: aniShadow 2s infinite linear;
+}
+@keyframes aniShadow{
+   0%{box-shadow: 0rpx 0rpx 10rpx #ED3439,0rpx 0rpx 10rpx #ED3439,0rpx 0rpx 10rpx #ED3439;}
+   50%{box-shadow: 0rpx 0rpx 40rpx #ED3439,0rpx 0rpx 40rpx #ED3439,0rpx 0rpx 40rpx #ED3439;}
+   100%{box-shadow: 0rpx 0rpx 10rpx #ED3439,0rpx 0rpx 10rpx #ED3439,0rpx 0rpx 10rpx #ED3439;}
+}
+
+/* 艺人详细信息  */
+.star_sketch,.star_Album,.star_show,.star_calendar{padding:0 20rpx;}
+.pd20{padding:0 20rpx;}
+.star_list_title{display: flex;justify-content:space-between;align-items: center;}
+.star_title_left{display: flex;align-items: center;}
+.star_title_left text{font-size:30rpx;color:#333333;}
+.star_sketch_right{}
+.grees{
+   display: inline-block;
+   font-size:28rpx;
+   color:#989898;
+   margin-left:52rpx;
+}
+.star_title_line{
+  width:10rpx;
+  height:26rpx;
+  background-color:#000000;
+  margin-right:10rpx;
+}
+.star_set_icon{
+  width:32rpx;
+  height:32rpx;
+  vertical-align: middle;
+}
+.star_set_icon2{
+  width:22rpx;
+  height:28rpx;
+  vertical-align: middle;
+  margin-left:10rpx;
+}
+.star_sketch_content{
+  margin-top:30rpx;
+  margin-bottom: 40rpx;
+  font-size:26rpx;
+  color:#333333;
+  /* 超出省略  */
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.star_Album_content{
+  margin-top:30rpx;
+  margin-bottom: 40rpx;
+  overflow: hidden;
+}
+.star_Album_item{
+   position: relative;
+   float: left;
+}
+.settitleimg{
+   position: absolute;
+   width:48rpx;
+   height:48rpx;
+   top:0;
+   right:0;
+   margin:10rpx;
+}
+.star_Album_content .star_Album_item :nth-child(1){
+  width:254rpx;
+  height:254rpx;
+  font-size:80rpx;
+  line-height: 254rpx;
+  vertical-align: middle;
+}
+.star_Album_content .star_Album_item:last-child :nth-child(1){ margin-right:0;}
+.star_Album_content .star_Album_item:nth-child(1){margin-right:20rpx;margin-left:10rpx;}
+.star_Album_content .star_Album_item:nth-child(1) :nth-child(1){
+  width:412rpx;
+  height:512rpx;
+  line-height: 512rpx;
+  font-size:150rpx;
+}
+.star_Album_content .star_Album_item:nth-child(2) :nth-child(1){
+  margin-bottom:4rpx;
+} 
+.add_btn{
+   box-sizing:border-box;
+   text-align:center;
+   border:2rpx solid #d8d8d8;
+   color:#d8d8d8;
+}
+
+.star_video{position: relative;}
+.star_video_content{
+  height:352rpx;
+  align-items: center;
+  padding-left:20rpx;
+  margin-top:30rpx;
+  position: relative;
+  margin-bottom: 40rpx;
+  display: flex;
+  overflow-x:scroll;
+}
+
+.star_video_item{width:250rpx;height:332rpx;position: relative;margin-right:16rpx;}
+.star_video_mask{
+  width:250rpx;
+  height:332rpx;
+  background-color:rgba(0,0,0,0.3);
+  position: absolute;
+  line-height:400rpx;
+  text-align: center;
+  top:0;
+  left:0;
+}
+.star_video_play{
+  width:78rpx;height:78rpx;display: inline-block;
+}
+.star_video_img{width:250rpx;height:332rpx;}
+.star_video_img:last-child{margin-right:0;}
+
+.star_show_content{
+  margin-top:30rpx;
+  margin-bottom: 40rpx;
+}
+.star_show_item{display: flex;align-items: center;margin-bottom: 36rpx;}
+.star_show_item:last-child{margin-bottom: 0rpx;}
+.star_show_img{width:200rpx;height:238rpx;}
+.star_show_bb{width:200rpx;height:238rpx;margin-right:30rpx;}
+.star_show_right{width:480rpx;}
+.show_right_occupation{margin-bottom:20rpx;display: flex;justify-content: space-between;}
+ .show_right_occupation view{font-size:30rpx; color:#000000;} 
+ .fenxiang{
+   padding-left:0rpx;
+   padding-right:0rpx;
+   margin:0;
+   background-color:transparent;
+   line-height: 1;
+   font-size:30rpx;
+   color:#db4852;
+}
+.fenxiang::after{border: none;background-color:transparent;}
+.fenxiang_icon{width:32rpx;height:32rpx;}
+/* .show_right_occupation view:nth-child(1){margin-right:98rpx;} */
+.show_right_lis{font-size:24rpx;margin-bottom: 12rpx;color:#333333;width:480rpx;}
+.show_right_lis:nth-last-child(2){margin-bottom:12rpx;}
+.show_right_lis text{word-wrap: break-word;word-break: break-all;}
+.show_right_cost{display: flex;align-items: center;justify-content: space-between;}
+.show_right_cost text{font-size:30rpx;color:#000000;white-space: nowrap;}
+.order_btn{
+  width:180rpx;
+  height:50rpx;
+  font-size:30rpx;
+  color:#ffffff;
+  background-color:#ed3439;
+  text-align:center;
+  line-height:50rpx;
+  border-radius: 70rpx;
+  margin-right:30rpx;
+}
+
+/* 艺人档期 */
+.clalendar_container{
+  padding:0 0rpx 40rpx;
+  font-family: PingFangSC-Medium, sans-serif;
+}
+.clalendar_title{
+  text-align: center;
+  font-size:30rpx;
+  margin-bottom: 30rpx;
+}
+.clalendar_week{
+  display: flex;
+  line-height: auto;
+  font-size:26rpx;
+  text-align: center;
+  margin-bottom:30rpx;
+}
+.clalendar_week_item{flex: 1;}
+.clalendar_content{
+   display: flex;
+   flex-wrap: wrap;
+   align-content:space-between;
+   height:400rpx;
+  text-align: center;
+}
+.clalendar_content .clalendar_date_box{
+   width:calc(100% / 7);
+   text-align: center;
+}
+.clalendar_content .clalendar_date_box .clalendar_date{
+  width:46rpx;
+  height:46rpx;
+  line-height: 46rpx;
+  text-align:center;
+  font-size:26rpx;
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  box-sizing: border-box;
+}
+.bd2solid{
+  border:2rpx solid #d8d8d8;
+}
+.Colord8d8d8{color:#d8d8d8}
+.Colored3439{color:#ed3439;border-color:#ed3439;}
+.bgcolord8d8d8{background-color:#d8d8d8;color:#ffffff;}
+.bgcolord8d8d8::after{
+  content: '';
+  width:2rpx;
+  height:46rpx;
+  background-color:#ffffff;
+  display: inline-block;
+  position: absolute;
+  left:50%;
+  top:50%;
+  margin-left:-1rpx;
+  margin-top:-23rpx;
+  transform: rotate(-45deg)
+}
+
+.but_star{
+  width:186rpx;
+  height:70rpx;
+  font-size:30rpx;
+  text-align: center;
+  line-height: 70rpx;
+  background-color:#ED3439;
+  border-radius:10rpx;
+  color:#ffffff;
+  padding:0;
+  margin:0;
+}
+
+
+/* 悬浮按钮  */
+.fontBox{display: flex;border-top:1rpx solid #989898;position: fixed;width: 100%;bottom: 0;left:0;z-index: 99;}
+.contact_star{
+  width:186rpx;
+  height:90rpx;
+  font-size:30rpx;
+  color:#333333;
+  text-align: center;
+  line-height: 90rpx;
+  border-right:1rpx solid #989898;
+  background-color:#ffffff;
+}
+.Sign_star{
+  width:564rpx;
+  height:90rpx;
+  text-align: center;
+  line-height: 90rpx;
+  font-size:36rpx;
+  color:#ffffff;
+  background-color:#ED3439;
+}
+#myVideo{
+ width:100%;
+ height:350rpx;
+ position: absolute;
+ z-index: 2;
+ top:0rpx;
+ left:0;
+}
+.t_right{text-align: right;width: 100%;}
+.closeBtn{
+   width:120rpx;
+   height:60rpx;
+   padding:5rpx 10rpx;
+   line-height: 60rpx;
+   color:#ffffff;
+   font-size:28rpx;
+   background-color:rgba(0, 0, 0, 0.3);
+   border-radius: 10rpx;
+   display: inline-block;
+}
+
+/* 主题  */
+.HomeImg_container{
+   width:100%;
+   height:100%;
+   position: fixed;
+   top:0;
+   left:0;
+   z-index:102;
+   background-color:rgba(255,255,255,1);
+}
+@keyframes TopMove{
+   0%{top:0;}
+   100%{top:-100%;}
+}
+.starHomeImg{width:100%;height:100%;}
+.setHomeImg{
+   width:68rpx;
+   height:68rpx;
+   position: absolute;
+   top:20rpx;
+   right:20rpx;
+}
+.HomeImg_point{
+   position: absolute;
+   width:100%;
+   bottom:62rpx;
+   color:#ffffff;
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+
+}
+.HomeImg_txt{font-size:28rpx;}
+.HomeImg_icon{
+   width:40rpx;height:60rpx;margin:0 auto;
+   padding-bottom: 20rpx;
+}
+
+/* 弹窗  */
+.tc_bg{
+   width:100%;
+   height:100%;
+   background-color:rgba(0, 0, 0, 0.5);
+   position: fixed;
+   top:0;
+   left:0;
+}
+.tc_container{
+   position: absolute;
+   width:610rpx;
+   top:25%;
+   left:50%;
+   margin-left:-305rpx;
+}
+.tc_content{
+   width:610rpx;
+   background-color:#ffffff;
+   border-radius: 15rpx;
+}
+.tc_title{
+   padding:48rpx 0 40rpx;
+   font-size:34rpx;
+   font-weight: 600;
+   color:#333333;
+   text-align: center;
+}
+.tc_point_content{
+   padding:50rpx 40rpx 50rpx;
+   font-size:32rpx;
+   color:#333333;
+   text-align: center;
+}
+.tc_foot{
+   display: flex;
+   justify-content: space-between;
+   padding-top:34rpx;
+}
+.tc_cancel_btn{
+   width:290rpx;
+   height:80rpx;
+   line-height: 80rpx;
+   background-color:#ffffff;
+   text-align: center;
+   border-radius: 15rpx;
+   font-size:32rpx;
+   color:#333333;
+}
+.tc_Determine_btn{
+   width:290rpx;
+   height:80rpx;
+   line-height: 80rpx;
+   background-color:#ed3439;
+   text-align: center;
+   border-radius: 15rpx;
+   font-size:32rpx;
+   color:#ffffff;
+   margin:0;
+   padding:0;
+}
+.tc_Determine_btn::after{border:none;}

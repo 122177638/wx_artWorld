@@ -1,0 +1,71 @@
+<!--pages/Chatpage/Chatpage.wxml-->
+<view class="Chatpage_container">
+   <scroll-view class="Chatpage_content" scroll-y  style="height:{{windowHeight}}px;" scroll-into-view="{{toView}}" upper-threshold="80" bindscrolltoupper="LoadMsgEvent">
+      <view class="Chatpage_point">艺能界平台为您提供<text>安全、有保障</text>的交易环境</view>
+      <view></view>
+      <view class="Chatpage_list">
+         <view wx:for="{{chatArr}}"  wx:key="mid" id="{{'list'+item.cid}}">
+            <!-- TA回复文字 -->
+            <view class="You_Chatpage_item" wx:if="{{item.Ctype == 'text' && item.uid != useruid}}">
+               <view class="YouPortraitBox" bindtap='tohomepage' data-tid="{{item.uid}}">
+                  <image src="{{item.userPortrait}}" mode='aspectFill' class="YouPortrait"></image>
+               </view>
+               <view class="You_MsgContent"><text>{{item.textMsg}}</text></view>
+            </view>
+
+            <!-- TA回复语音 -->
+
+            <view class="You_Chatpage_item" wx:if="{{item.Ctype == 'voice' && item.uid != useruid}}">
+               <view class="YouPortraitBox" bindtap='tohomepage' data-tid="{{item.uid}}">
+                  <image src="{{item.userPortrait}}" mode='aspectFill' class="YouPortrait"></image>
+               </view>
+               <view class="You_MsgContent_audio">
+                  <view class="You_MsgContent You_yuyin_content" data-cid='{{item.cid}}' bindtap='StartAudioPlay'>
+                     <image src="{{item.Aplay?YouyuyinIconPlay:YouyuyinIcon}}" class="You_yuyin_icon"></image>
+                  </view>
+                  <view class="You_audioTime">{{item.voiceLen}}"</view>
+               </view>
+            </view>
+
+            <!-- WO发送文字  -->
+            <view class="My_Chatpage_item" wx:if="{{item.Ctype == 'text'&&item.uid == useruid}}">
+               <view class="My_MsgContent"><text>{{item.textMsg}}</text> </view>
+               <view class="MyPortraitBox">
+                  <image src="{{item.userPortrait}}" mode='aspectFill' class="MyPortrait"></image>
+               </view>
+            </view>
+
+            <!-- WO发送语音-->
+            <view class="My_Chatpage_item" wx:if="{{item.Ctype == 'voice' &&item.uid ==useruid}}">
+               <view class="My_MsgContent_audio">
+                  <view class="My_audioTime">{{item.voiceLen}}"</view>
+                  <view class="My_MsgContent My_yuyin_content" data-cid='{{item.cid}}' bindtap='StartAudioPlay'>
+                     <image src="{{item.Aplay?MyyuyinIconPlay:MyyuyinIcon}}" class="My_yuyin_icon"></image>
+                  </view>
+               </view>
+               <view class="MyPortraitBox">
+                  <image src="{{item.userPortrait}}" mode='aspectFill' class="MyPortrait"></image>
+               </view>
+            </view>
+
+         </view>
+      </view>
+   </scroll-view>
+   <!-- 聊天输入  -->
+   <view class="font_container">
+      <view class="font_import_box">
+         <image src="{{!VoiceSwitch?yuyinicon:texticon}}" class="yuyinbtn" bindtap='VoiceSwitchChange'></image>
+         <view class="voiceBtn" wx:if="{{VoiceSwitch}}" bindlongpress='RecordAudioChange' bindtouchend='EndRecordAudioChange' bindtouchmove='MoveRecordAudioChange' bindtouchstart='StartRecordAudioChange'> 按住 说话</view>
+         <textarea type='text' class="importMsg" show-confirm-bar="false" cursor-spacing="15" wx:else bindinput='getimportMsg' height="70rpx" fixed="true" auto-height="true" value='{{textMsg}}' ></textarea>
+         <form id="ffid" bindsubmit="enterMsgChange" report-submit='true'>
+            <button class="enterBtn" form-type="submit" wx:if="{{!VoiceSwitch}}">发送</button>
+         </form>
+      </view>
+   </view>
+   <!-- 语音录制弹窗  -->
+   <view class="RecordAudio_tc" wx:if="{{startRecorder}}">
+      <image src="{{removeEnter?YYcancel:YYicon}}" class="RecordAudio_point_icon"></image>
+      <view class="RecordAudio_point" style="background-color:{{removeEnter?'#9D031F':''}}">{{removeEnter?'松开手指，取消发送':'手指上滑，取消发送'}}</view>
+   </view>
+
+</view>

@@ -1,0 +1,23 @@
+<!--pages/ggdetails/ggdetails.wxml-->
+<view class="ggdetail">
+  <view class="ggTop">
+    <image src="{{userInfo.userhead}}" class="userImg"></image>
+    <text style='margin-left: 10rpx'>{{userInfo.username}}</text>
+  </view>
+  <view class="MsgDetails" wx:for="{{list}}" wx:key='tid'>
+    <view wx:if="{{item.auto == 'text'}}">
+      <view class="gsSketch2">
+        <text>{{item.content}}</text>
+      </view>
+    </view>
+    <view wx:else>
+      <view class="gsImgs">
+        <image src="{{item.imgurl}}" class="gsImg" mode="widthFix"></image>
+      </view>
+      <view class="gsSketch">
+        <text>{{item.content}}</text>
+      </view>
+    </view>
+  </view>
+
+</view>

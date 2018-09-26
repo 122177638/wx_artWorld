@@ -1,0 +1,76 @@
+/* pages/registerThree/registerThree.wxss */
+.registerThree_container{
+  background-color:#000000;
+  width:100vw;
+  height:100vh;
+  font-family: PingFangSC-Medium, sans-serif;
+}
+
+.registerThree_portrait{
+  padding-top:70rpx;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+.registerThree_portrait .point{
+  color:#ffffff;
+  font-size:34rpx;
+  margin-top:22rpx;
+}
+.registerThree_addFeil{
+  width:200rpx;
+  height:234rpx;
+  border:2rpx solid #ffffff;
+  font-size:80rpx;
+  color:#ffffff;
+  line-height: 234rpx;
+  text-align: center;
+  margin:0 auto;
+}
+.head_portrait{
+   width:200rpx;
+  height:234rpx;
+  border:2rpx solid #ffffff;
+  font-size:80rpx;
+  color:#ffffff;
+  margin:0 auto;
+}
+.registerThree_name{
+  padding-top:80rpx;
+  padding-bottom:20rpx;
+  margin:0 36rpx;
+  border-bottom: 1rpx solid #d8d8d8;
+  font-size:32rpx;
+  color:#ffffff;
+  display: flex;
+}
+.registerThree_name input{
+  width:555rpx;
+  font-size:28rpx;
+  color:#d8d8d8;
+  padding-left:43rpx;
+}
+.import_point_already{
+  font-size:24rpx;
+  color:#ed3439;
+  margin-top:22rpx;
+  margin-left:45rpx;
+  height:32rpx;
+}
+.import_point_not{
+  font-size:24rpx;
+  color:#51C332;
+  margin-top:22rpx;
+  margin-left:45rpx;
+}
+.registerThree_End{
+  width:640rpx;
+  height:78rpx;
+  background-color:rgba(255, 255, 255, 0.5);
+  text-align: center;
+  line-height: 78rpx;
+  font-size:36rpx;
+  color:#000000;
+  border-radius: 70rpx;
+  margin:150rpx auto 0;
+}

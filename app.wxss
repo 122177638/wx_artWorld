@@ -1,0 +1,26 @@
+/**app.wxss**/
+page{
+  font-family: PingFangSC-Medium, sans-serif;  
+}
+/* tabBar */
+.tab-bar{  
+  position: fixed;  
+  width: 100%;
+  display: flex;
+}  
+.menu-item{  
+  width:100%;
+  text-align: center;
+  display: flex;
+  flex-direction:column;
+
+}  
+.tab-bar_icon{  
+  width: 56rpx;  
+  height: 56rpx;  
+  display: block;  
+  margin:auto;  
+}  
+.tab_bar_text{
+  font-size:28rpx;
+}

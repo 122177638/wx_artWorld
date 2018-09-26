@@ -1,0 +1,119 @@
+<!--pages/Cashier/Cashier.wxml-->
+<view class="Cashier_container">
+   <view class="Cashier_top">
+      <view class="Cashier_msg_box">
+         <view> <image src='{{starShow.userhead}}' mode='aspectFill' class="msg_head"></image></view>
+         <view class="Name">{{starShow.username}}</view>
+      </view>
+      <view class="star_show_item">
+         <view class="star_show_bb"><image src="{{starShow.imgurl}}" class="star_show_img" mode='aspectFill'></image></view>
+         <view class="star_show_right">
+            <view class="show_right_occupation"><view>{{starShow.servicename}}</view><view></view></view>
+            <view class="show_right_lis"><text>风格： </text><text>{{starShow.style}}</text></view>
+            <view class="show_right_lis"><text>服务地区： </text><text>{{starShow.areas}}</text></view>
+            <view class="show_right_lis"><text>服务说明： </text><text>{{starShow.content}}</text></view>
+            <view class="show_right_cost">
+               <text style="color:#ed3439;">{{starShow.price+starShow.pricestr}}</text>
+               <view class="P_Num">x1</view>
+            </view>
+         </view>
+      </view>
+   </view>
+   <view class="form_wrap">
+      <view class="form_list">
+         <view class="form_item">
+            <view class="item_left">数量</view>
+            <view class="item_right">
+               <view class="reduce" bindtap='reduceNumEvent'>-</view>
+               <view class="Company">{{Company}}</view>
+               <view class="plus" bindtap='plusNumEvent'>+</view>
+               <view class="C_text">场</view>
+            </view>
+         </view>
+         <view class="form_item" bindtap='getStageEvent'>
+            <view class="item_left">预约档期</view>
+            <view class="item_right" wx:if="{{T_date != ''}}">
+                  <view>{{T_Year+'年'+T_month+'月'}}</view>
+                  <view class="T_date">{{T_date}}</view>
+            </view>
+         </view>
+         <view class="form_item" bindtap='getFocusEvent1'>
+            <view class="item_left">演出地点</view>
+            <view class="item_right">
+               <input type='text' focus='{{focus1}}' bindinput='getLocationEvent' placeholder='请输入艺人的演出地点' class=""></input>
+            </view>
+         </view>
+         <view class="form_item" bindtap='getFocusEvent2'>
+            <view class="item_left">联系电话</view>
+            <view class="item_right">
+               <input type='number' maxlength='11' focus='{{focus2}}' bindinput='getphone' placeholder='请输入联系电话' class=""></input>
+            </view>
+         </view>
+         <view class="form_ticket">
+            <view class="form_item" style="border:none;">
+               <view class="item_left">开发票</view>
+               <view class="item_right">
+                  <view class="T_date1 {{isSetFP?'':'on_T_date1'}}" bindtap='noinvoiceEvent'>否</view>
+                  <view class="T_date1 mg60 {{isSetFP?'on_T_date1':''}}" bindtap='navigateToinvoice'>是</view>
+               </view>
+            </view>
+            <view wx:if="{{ticket != ''}}" class="ticket_box">
+               <!-- 普通发票  -->
+               <view class="ticket_list" wx:if="{{ticket.invoiceType =='ordinary'}}">
+                  <view>公司名称:{{ticket.gsName}}</view>
+                  <view>收票人姓名：{{ticket.SPRname}}</view>
+                  <view>邮寄地址：{{ticket.YJarea}}</view>
+                  <view>电话：{{ticket.phone}}</view>
+               </view>
+               <!-- 增值发票  -->
+               <view class="ticket_list" wx:if="{{ticket.invoiceType =='increment'}}">
+                  <view>公司名称:{{ticket.gsName}}</view>
+                  <view>税号:{{ticket.tax}}</view>
+                  <view>开户行:{{ticket.OpenH}}</view>
+                  <view>银行卡账号:{{ticket.Bank}}</view>
+                  <view>收票人姓名：{{ticket.SPRname}}</view>
+                  <view>邮寄地址：{{ticket.YJarea}}</view>
+                  <view>电话：{{ticket.phone}}</view>
+               </view>
+            </view>
+         </view>
+         
+         <view class="liuyan">
+            <view class="liuyan_point">留言</view>
+            <view class="liuyan_msg">
+               <textarea bindinput='getLeavingEvent' placeholder='请写明活动的具体开始时间，如：尚明广场商演活动于3月20日下午13：00开始'></textarea>
+            </view>
+         </view>
+
+         <view class="agreement">
+            <checkbox-group bindchange="checkboxChange">
+               <label class="checkbox">
+                  <checkbox value="Agree" checked/>同意
+                  <text style="color:#ed3439" catchtap='openAgreementChange'>《艺人微站合同协议》</text>
+               </label>
+            </checkbox-group>
+         </view>
+      </view>
+   </view>
+   <view class="foot_wrap">
+      <view class="foot_left"><view class="F_inline">合同金额:</view><view class="F_money">￥{{mony + billprice}}</view></view>
+      <form id="scht" bindsubmit="EndFormEvent" report-submit='true'>
+         <input hidden='true'></input>
+         <button class="foot_right" form-type="submit">生成合同</button>
+      </form>
+   </view>
+</view>
+
+<!-- 弹窗  -->
+<view class="tc_bg" wx:if="{{tcBoolean}}">
+   <view class="tc_container">
+      <view class="tc_content">
+         <!-- <view class="tc_title">你还没有登录</view> -->
+         <view class="tc_point_content">由于检测到您还没有登录，因此部分功能无法使用，请点击下方登录按钮一键登录/注册，与艺人互动</view>
+      </view>
+      <view class="tc_foot">
+         <view class="tc_cancel_btn" bindtap='tc_cancelChange'>再等等</view>
+         <button open-type='getUserInfo' class="tc_Determine_btn" bindgetuserinfo='tc_DetermineChange'>现在登录</button>
+      </view>
+   </view>
+</view>

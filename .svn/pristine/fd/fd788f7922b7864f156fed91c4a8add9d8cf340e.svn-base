@@ -1,0 +1,102 @@
+/* pages/erweima/erweima.wxss */
+.erweima{
+  background:#ADD8E6;
+  width:100vw;
+  height:100vh;
+  font-family: PingFangSC-Medium, sans-serif;
+}
+.pt130{
+  padding-top:130rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: cneter;
+  text-align: center;
+}
+.ewmBox{
+  position: relative;
+  text-align: center;
+  width:670rpx;
+  height:672rpx;
+  margin:0 auto;
+}
+.imgbg{
+  width:670rpx;
+  height:672rpx;
+  vertical-align: middle;
+  position: absolute;
+  left:0;
+}
+.userImg{
+  width:282rpx;
+  height:282rpx;
+  padding-top:202rpx;
+  position: relative;
+}
+.setKou{
+  position: relative;
+  padding:40rpx 80rpx 0;
+  font-size:36rpx;
+  color:#ffffff;
+}
+.point{
+  position: relative;
+  padding-top:50rpx;
+  font-size:22rpx;
+  color:#f5c98f;
+}
+.btnBox{
+  padding-top:116rpx;
+  padding-bottom: 156rpx;
+  text-align: center;
+}
+.Fx_btn{
+  width:710rpx;
+  height:86rpx;
+  vertical-align: middle;
+}
+.fx_point{
+  font-size:24rpx;
+  color:#626262;
+  padding-top:20rpx;
+
+}
+.gonglue{
+  width:18rpx;
+  height:20rpx;
+  vertical-align: middle;
+  padding-left:8rpx;
+}
+/*底部按钮  */
+.fontBg{
+  width:100%;
+  height:100%;
+  background-color:rgba(0,0,0,0.7);
+  position: fixed;
+  top:0;
+  left:0;
+  display: none;
+  z-index: 99;
+}
+.foot{
+  position: absolute;
+  width:100%;
+  bottom:0;
+  left:0;
+  animation: move 200ms linear;
+}
+.navigataBox{
+  border-bottom: 10rpx solid #f0f0f0;
+}
+button{
+  border-radius:0;
+  height:110rpx;
+  line-height: 110rpx;
+  text-align: center;
+  font-size:36rpx;
+  font-family: PingFangSC-Medium, sans-serif;
+  color:#222222;
+}
+@keyframes move{
+  0%{bottom:-184px}
+  100%{bottom:0}
+}

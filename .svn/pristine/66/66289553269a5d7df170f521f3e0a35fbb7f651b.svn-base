@@ -1,0 +1,54 @@
+<!--pages/MyHomePage/MyHomePage.wxml-->
+<view class="MyHomePage_container">
+  <image src="{{userheadbg}}" class="MyHomePage_banner" mode='aspectFill'></image>
+  <view class="MyHomePage_content" style="border:{{dynamicArray.length == 0?'none':''}}">
+    <image src="{{userimgurl}}" mode='aspectFill' class="MyHomePage_portrait" bindtap='navvigateToHomePage'></image>
+    <view  class="Publication_right">
+      <view class="Publication" bindtap='addDynamicEvent' wx:if='{{Dynamic_B}}'>发布动态</view>
+    </view>
+    <view class="dynamic_container">
+      <view wx:if="{{dynamicArray.length == 0}}" class="dynamic_point">暂无动态</view>
+      <view class="dynamic_item" wx:for="{{dynamicArray}}" wx:key="id">
+        <view class="dynamic_time">{{item.createtime}}</view>
+        <view class="dynamic_content" data-lid='{{item.lid}}' catchtap='seeDynamicEvent'>
+          <view class="dynamic_title">
+            <text>{{item.title}}</text>
+            <button open-type='share' data-lid="{{item.lid}}" class="fenxiang_btn" catchtap='but'><image src="/images/btn_fenxiang.png" class="fenxiang_icon"></image></button>
+          </view>
+
+          <view class="{{item.docurl.length >1?'dynamic_imgs9':'dynamic_imgs'}}">
+            <!-- 图片  -->
+            <block wx:if="{{imgItem.type=='img'}}"  wx:for="{{item.docurl}}" wx:key="id" wx:for-item="imgItem">
+               <image src="{{imgItem.url}}" mode='aspectFill' class="{{item.docurl.length >1?'dynamic_img9':'dynamic_img'}}"></image>
+            </block>
+            <!-- 视频  -->
+             <block wx:if="{{imgItem.type=='video'}}"  wx:for="{{item.docurl}}" wx:key="id" wx:for-item="imgItem">
+                <view class="{{item.docurl.length >1?'Photos_home9':'Photos_home'}}"  catchtap='but'>
+                  <video controls src="{{imgItem.url}}" class="{{item.dynamicImgs.length >1?'Photos_homeImg9':'Photos_homeImg'}}" objectFit="fill"></video>
+               </view>
+            </block>
+          </view>
+
+          <view class="Location">
+            <image src="/images/icon_dingwei.png"  class="Location_icon"></image>
+            <text>{{item.area}}</text>
+          </view>
+          <view class="yueduBox">
+            <view class="yuedu">
+              <image src="/images/icon_liulan.png" class="yuedu_icon1"></image>
+              <text>{{item.pagenum}}</text>
+            </view>
+            <view class="yuedu">
+              <image src="/images/icon_xiaoxi.png" class="yuedu_icon2"></image>
+              <text>{{item.replycount}}</text>
+            </view>
+            <view class="yuedu">
+              <image src="/images/icon_xihuan.png" class="yuedu_icon3"></image>
+              <text>{{item.likenum}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view> 
+  </view>
+</view> 

@@ -1,0 +1,14 @@
+<!--pages/erweima/erweima.wxml-->
+<view class="erweima"catchlongpress="onTapfx">
+   <image src="{{erweimatempFilePath}}" style="width:100%;height:100%;margin:0 auto;"></image>
+  <!-- 底部按钮  -->
+    <view class="fontBg" style="display:{{fontBlock?'block':'none'}}" catchtap='fontNoneChange'>
+      <view class='foot'>
+        <view class="navigataBox">
+          <button open-type="share">发给微信好友或微信群</button>
+          <button bindtap="qrcode">保存图片</button>
+        </view>
+        <button bindtap='fontNoneChange'>取消</button>
+      </view>
+    </view>
+</view>

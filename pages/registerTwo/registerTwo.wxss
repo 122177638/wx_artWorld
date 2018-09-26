@@ -1,0 +1,122 @@
+/* pages/registerTwo/registerTwo.wxss */
+.registerTwo_container{
+  background-color:#000000;
+  width:100vw;
+  height:100vh;
+  font-family: PingFangSC-Medium, sans-serif;
+}
+.registerTwo_identity{
+  font-size:34rpx;
+  color:#ffffff;
+  padding-top:100rpx;
+  text-align: center;
+  padding-bottom: 50rpx;
+}
+.registerTwo_identity::after{
+  content: '';
+  width:136rpx;
+  height:2rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left:32rpx;
+  background-color:#ffffff;
+}
+.registerTwo_identity::before{
+  content: '';
+  width:136rpx;
+  height:2rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right:32rpx;
+  background-color:#ffffff;
+}
+
+/* 选择身份  */
+.registerTwo_identity_box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registerTwo_identity_list{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+}
+.p_abs{
+   position: absolute;
+   font-size:24rpx;
+   color:#ffffff;
+   line-height: 1.8;
+   left:-25rpx;
+   top:110%;
+   height:550rpx;
+   writing-mode: vertical-rl;/*从左向右 从右向左是 writing-mode: vertical-rl;*/  
+   writing-mode: tb-rl;/*IE浏览器的从左向右 从右向左是 writing-mode: tb-rl；*/ 
+}
+.p_abs2{
+   position: absolute;
+   font-size:32rpx;
+   color:#ffffff;
+   line-height: 1.8;
+   left:0rpx;
+   top:110%;
+   height:550rpx;
+   writing-mode: vertical-rl;/*从左向右 从右向左是 writing-mode: vertical-rl;*/  
+   writing-mode: tb-rl;/*IE浏览器的从左向右 从右向左是 writing-mode: tb-rl；*/ 
+}
+.registerTwo_identity_list:nth-child(1){
+  margin-right:166rpx;
+}
+.registerTwo_identity_list text{
+  font-size:30rpx;
+  color:#ffffff;
+}
+.identity_icon{
+  width:120rpx;
+  height:120rpx;
+  margin:0 auto 22rpx;
+}
+
+/* 选择职业 */
+.registerTwo_occupation_container{
+  padding:80rpx 20rpx 20rpx;
+  color:#ffffff;
+}
+
+.occupation_title{font-size:34rpx;padding-bottom: 10rpx;}
+.occupation_title text{font-size:26rpx;}
+
+.occupation_list{
+  height:500rpx;
+}
+.occupation_item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top:30rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx solid #d8d8d8;
+}
+.occupation_name{
+  font-size:32rpx;
+}
+.active_icon{
+  width:44rpx;
+  height:28rpx;
+}
+.getidentityEnd{
+  width:640rpx;
+  height:78rpx;
+  color:#000000;
+  font-size:36rpx;
+  background-color:rgba(255,255,255,0.5);
+  text-align: center;
+  line-height: 78rpx;
+  border-radius: 70rpx;
+  margin:20rpx auto 0;
+}
+.EndGetid{
+   background-color:rgba(255,255,255,1);
+}

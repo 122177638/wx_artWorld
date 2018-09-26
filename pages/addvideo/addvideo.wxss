@@ -1,0 +1,68 @@
+/* pages/addvideo/addvideo.wxss */
+.setPhotos_container{font-family: PingFangSC-Medium, sans-serif;}
+.addPhotos_top{padding:30rpx;text-align: right;border-bottom: 2rpx solid #f3f3f3;}
+.addPhotos_top view{display: inline-block;color:#1f8ae3;font-size:32rpx;}
+.addPhotos_row{padding:30rpx;border-bottom: 2rpx solid #f3f3f3;display: flex;justify-content: space-between;align-items: center;}
+.addPhotos_row .Row_name{font-size:32rpx;color:#333333;}
+.addbtn{
+   width:100rpx;
+   height:100rpx;
+   border:2rpx solid #707070;
+   position: relative;
+   color:#707070;
+   text-align: center;
+   line-height: 100rpx;
+}
+.HomeImg{
+   width:100rpx;
+   height:100rpx;
+}
+.addPhotos_row input{font-size:30rpx;color:#707070;text-align: right;}
+
+.row_icon{width:32rpx;height:38rpx;}
+.row_press{font-size:30rpx;color:#707070;}
+.Photos_num{padding:30rpx;font-size:30rpx;color:#707070;}
+.addPhotosBox{
+   padding:36rpx 20rpx 40rpx;
+}
+.addPhotos_btn{
+   box-sizing: border-box;
+   width:224rpx;
+   height:224rpx;
+   text-align: center;
+   line-height: 224rpx;
+   border:2rpx solid #d8d8d8;
+   font-size:80rpx;
+   color:#d8d8d8;
+}
+.photoBox{width:550rpx;height:300rpx;position: relative;}
+
+.videoBg{
+   background-color:rgba(0,0,0,0.5);
+   position:absolute;
+   top:0;
+   left:0;
+   width:100%;
+   height:100%;
+   z-index:97;
+}
+.photoImg{
+   width:550rpx;
+   height:300rpx;
+   vertical-align: middle;
+   position: absolute;
+   left:0;top:0;
+   z-index: 3;
+}
+.bofangBtn{
+   width:100rpx;
+   height:100rpx;
+   position: absolute;
+   left:50%;
+   top:50%;
+   margin-left:-50rpx;
+   margin-top:-50rpx;
+}
+
+.delete_icon{width:54rpx;height:54rpx;position: absolute;right:10rpx;top:10rpx;z-index: 99;}
+.Svideo{width:550rpx;height:300rpx;vertical-align: middle;z-index: 1;}

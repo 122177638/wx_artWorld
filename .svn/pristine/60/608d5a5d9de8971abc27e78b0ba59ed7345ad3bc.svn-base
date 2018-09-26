@@ -1,0 +1,70 @@
+<!--pages/myMessage/myMessage.wxml-->
+<view class="myMessage_container">
+   <view class="myMessage_top">
+      <view class="myMessage_header">
+         <image src="{{userimg}}" mode='aspectFill' class="userPortrait"  bindtap='navigateToMyHomePage'></image>
+         <view class="userMsg">
+            <view class="userName">{{uname}}</view>
+            <view class="userOccupation">{{auth==0?'未认证':'艺人认证'}}： {{occupation}}</view>
+         </view>
+      </view>
+      <view class="userPagelist">
+         <view class="userHome list" bindtap='navigateToMyHomePage'>
+            <image src="/images/icon_wodezhuye.png" class="PagelistIcon"></image>
+            <view>我的主页</view>
+         </view>
+         <view class="userAnnouncement list {{news2?'itemAfter':''}}" bindtap='navigateToMyAnnouncement'>
+            <image src="/images/icon_wodetonggao.png" class="PagelistIcon"></image>
+            <view>我的通告</view>
+         </view>
+         <view class="userNews list {{news?'itemAfter':''}}" bindtap='navigateToMyNews'>
+            <image src="/images/icon_xiaoxizhongxin.png" class="PagelistIcon"></image>
+            <view>消息中心</view>
+         </view>
+      </view>
+   </view>
+   <view class="myMessage_center">
+      <view class="userMypages">
+         <view class="Mypage" bindtap='navigataToMyAccount'>
+            <view class="Mypage_left">
+               <image src="/images/img_wodezhanghu.png" class="Mypage_icon"></image>
+               <text>我的账户</text>
+            </view>
+         </view>
+         <view class="Mypage" bindtap='navigateToMyAuthentication'>
+            <view class="Mypage_left">
+               <image src="/images/img_woderenzheng.png" class="Mypage_icon"></image>
+               <text>我的认证</text>
+            </view>
+            <view class="Mypage_right">
+               <text>{{auth==0?'未完成':'已认证'}}</text>
+               <image src="/images/btn_weiwancheng.png" class="Mypage_icon_ss"></image>
+            </view>
+         </view>
+         <view class="Mypage {{news3?'MypageAfter':''}}" bindtap='navigateToMyOrder'>
+            <view class="Mypage_left">
+               <image src="/images/img_wodedingdan.png" class="Mypage_icon"></image>
+               <text>我的订单</text>
+            </view>
+         </view>
+         <view class="Mypage {{news?'':''}}" bindtap='navigateToMyApplication'>
+            <view class="Mypage_left">
+               <image src="/images/img_wodeshenqing.png" class="Mypage_icon"></image>
+               <text>我的申请</text>
+            </view>
+         </view>
+         <view class="Mypage {{news?'':''}}" bindtap='navigateToMyAttention'>
+            <view class="Mypage_left">
+               <image src="/images/img_wodeguanzhu.png" class="Mypage_icon"></image>
+               <text>我的关注</text>
+            </view>
+         </view>
+         <button open-type='contact' class="Mypage butBtn">
+            <view class="Mypage_left">
+               <image src="/images/img_lianxikefu.png" class="Mypage_icon"></image>
+               <text>联系客服</text>
+            </view>
+         </button>
+      </view>
+   </view>
+</view>

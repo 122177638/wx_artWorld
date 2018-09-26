@@ -1,0 +1,18 @@
+<!--pages/MyAttention/MyAttention.wxml-->
+<view class="MyAttention_container">
+   <view class="MyAttention_list">
+      <view class="MyAttention_item" wx:for="{{starMoveArr}}" wx:key="id" data-uid='{{item.uid}}' bindtap='navigateTostarHomePage'>
+         <view class="starPortraitBox"><image src="{{item.avatarUrl}}" class="starPortrait"></image></view>
+         <view class="starMsgBox">
+            <view class="starMsg_line mgB18">
+               <text class="starName">{{item.nickName}}</text>
+               <text class="starMove" wx:if="{{item.news==1}}">有新动态</text>
+            </view>
+            <view class="starMsg_line">
+               <text class="starOccupation">职业： {{item.occupation}}</text>
+               <text class="starMoveTime" wx:if="{{item.news==1}}">{{item.updatetime}}</text>
+            </view>
+         </view>
+      </view>
+   </view>
+</view>

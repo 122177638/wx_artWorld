@@ -1,0 +1,16 @@
+<!--pages/Setpicker/Setpicker.wxml-->
+<view class="Tpicker">
+  <checkbox-group bindchange="checkboxChange" >
+    <view class="{{items.hidden?'':'cityShow'}} pickerss" wx:for="{{pickerJSON}}" wx:key="province" wx:for-item="items" wx:for-index="provinceIndex" bindtap='provinceChange' data-province="{{provinceIndex}}">
+      <view class="pickerBox">
+        <view class="pickerName">{{items.name}}</view>
+          <view class="{{items.hidden?'cityHidden':'cityShow'}} CityBox">
+            <label class="pickerList" wx:for="{{items.cities}}" wx:key="City" wx:for-item="item" >
+              <checkbox value="{{item.name+'#'+item.pinyin}}">{{item.name}}</checkbox>
+            </label>
+          </view>
+      </view>
+    </view>
+    <view class="fontBtn" bindtap='navigataToGoback'>确认</view>
+    </checkbox-group>
+  </view>

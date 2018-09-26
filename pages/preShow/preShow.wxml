@@ -1,0 +1,26 @@
+<!--pages/preShow/preShow.wxml-->
+<view class="preShow_container">
+   <view class="preShow_warp">
+      <view class="preShow_list">
+         <view class="preShow_item" wx:for="{{preShowArr}}" wx:key="id">
+            <view class="Pitem_img"><image src="{{item.imgurl}}" mode='aspectFill'></image></view>
+            <view class="Pitem_content">
+               <view class="Pitem_row">
+                  <view><text>{{item.servicename}}</text><text>{{item.experience}}</text></view>
+                  <view>{{item.price+item.pricestr}}</view>
+               </view>
+               <view class="Pitem_line">风格： {{item.style}}</view>
+               <view class="Pitem_line">服务地区： {{item.areas}}</view>
+               <view class="Pitem_line">服务说明： {{item.content}}</view>
+               <view class="Pitem_btn">
+                  <view class="Pitem_btn_delete" data-sid='{{item.sid}}' bindtap='deletepreShowEvent'>删除</view>
+                  <view class="Pitem_btn_set" data-sid='{{item.sid}}' bindtap='setpreShowEvent'>编辑</view>
+               </view>
+            </view>
+         </view>
+      </view>
+      <view class="preShow_add_box">
+         <view class="preShow_addlist" bindtap='addpreShowEvent'>+服务项目</view>
+      </view>
+   </view>
+</view>

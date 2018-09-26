@@ -1,0 +1,47 @@
+<!--pages/addDynamic/addDynamic.wxml-->
+<view class="addDynamic_container">
+   <view class="addDynamic_top">
+      <view bindtap='addDynamicEndEvent'>完成</view>
+   </view>
+   <view class="addDynamic_textMsg">
+      <textarea type='text' placeholder='分享的动态' maxlength="-1" class="addDynamic_cont" cursor-spacing="15" bindinput='getaddDynamicMsg' value="{{DynamicTxt}}"></textarea>
+   </view>
+   <view class="addDynamic_position" bindtap='getpositionNameEvent'>
+      <view class="pst_left"><image src="/images/img_diagweixuanze.png" class="pst_icon"></image></view>
+      <view class="pst_right">{{positionName}}</view>
+   </view>
+   
+   <view class="addUpload_container">
+      <view class="addUpload_content">
+         <view class="addUpload_btn" wx:if="{{!addvideo_B}}" bindtap='setDetailsEvent'>+</view>
+         <view class="addUploadBox"wx:for="{{UploadArr}}" wx:for-item="Upload" wx:key="uid">
+         <!-- 图片  -->
+         <block wx:if="{{Upload.type=='img'}}">
+            <image src="{{Upload.imgurl}}" mode='aspectFill' class="addUpload_img" data-uid='{{Upload.uid}}' bindtap='previewUploadEvent'></image>
+            <image src="/images/btn_shanchu.png" data-uid='{{Upload.uid}}' class="deleteUpload_btn" catchtap='deleteUploadEvent'></image>
+         </block>
+         <!-- 视频  -->
+         <block wx:if="{{Upload.type=='video'}}">
+            <view class="Photos_home">
+               <video controls src="{{Upload.imgurl}}" objectFit="cover" id="myVideo" bindended="viceoEndEvent" bindfullscreenchange="videoScreenEvent" show-fullscreen-btn="false"show-play-btn="false">
+                  <cover-view class="videoBg" wx:if='{{!videoBtnShow}}' data-uid='{{Upload.uid}}' catchtap='startVideoEvent'>
+                     <!-- <cover-image src="{{Upload.thumbTempFilePath}}"class="Photos_homeImg" mode='aspectFill'></cover-image> -->
+                  </cover-view> 
+                  <cover-image src="/images/btn_shanchu.png" data-uid='{{Upload.uid}}'  class="delete_icon" hidden="{{deletevideoShow}}" catchtap='deleteUploadEvent'></cover-image>
+               </video>
+            </view>
+         </block>
+         </view> 
+      </view>
+   </view>
+
+     <!-- 弹窗 -->
+   <view class="select_container" wx:if="{{selectBoolean}}" catchtap='selectCloseEvent'>
+      <view class="select_wrap" style="animation:{{selectBoolean?'Bmove 300ms 1 forwards ease-out':''}}">
+         <view class="select_btn" catchtap='addImgEvent'>相册</view>
+         <view class="select_btn" catchtap='addvideoEvent'>视频</view>
+         <view class="select_btn" catchtap='cancelEvent'>取消</view>
+      </view>
+   </view>
+</view>
+
