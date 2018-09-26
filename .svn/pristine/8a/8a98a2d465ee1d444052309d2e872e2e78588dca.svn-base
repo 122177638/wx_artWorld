@@ -1,4 +1,0 @@
-<!--pages/demand/demand.wxml-->
-<text>pages/demand/demand.wxml</text>
-<import src="/template/tabBar/tabBar.wxml"/>  
-<template is="tabBar" data="{{tabBar}}"/>  

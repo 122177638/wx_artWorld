@@ -1,4 +1,0 @@
-<!--pages/home/home.wxml-->
-<view>
-<button>去首页看看</button><button open-type="getUserInfo" bindgetuserinfo="getuser">快速登录</button>
-</view>

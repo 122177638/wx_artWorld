@@ -1,6 +1,0 @@
-/* pages/artCircle/artCircle.wxss */
-.homeImg{
-  width:100vw;
-  height:100vh;
-
-}
